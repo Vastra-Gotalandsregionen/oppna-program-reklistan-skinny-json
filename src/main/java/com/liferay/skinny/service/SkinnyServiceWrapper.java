@@ -66,6 +66,20 @@ public class SkinnyServiceWrapper implements SkinnyService,
             status, locale);
     }
 
+    @Override
+    public java.util.List<com.liferay.skinny.model.SkinnyJournalArticleVersionMetadata> getSkinnyJournalArticleVersions(
+        long groupId, java.lang.String articleId) throws java.lang.Exception {
+        return _skinnyService.getSkinnyJournalArticleVersions(groupId, articleId);
+    }
+
+    @Override
+    public com.liferay.skinny.model.SkinnyJournalArticle getSkinnyJournalArticleByVersion(
+        long groupId, java.lang.String articleId, java.lang.String version,
+        java.lang.String locale) throws java.lang.Exception {
+        return _skinnyService.getSkinnyJournalArticleByVersion(groupId,
+            articleId, version, locale);
+    }
+
     /**
      * @deprecated As of 6.1.0, replaced by {@link #getWrappedService}
      */

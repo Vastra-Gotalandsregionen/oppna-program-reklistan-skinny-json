@@ -71,6 +71,19 @@ public class SkinnyServiceUtil {
                    .getSkinnyJournalArticle(groupId, articleId, status, locale);
     }
 
+    public static java.util.List<com.liferay.skinny.model.SkinnyJournalArticleVersionMetadata> getSkinnyJournalArticleVersions(
+        long groupId, java.lang.String articleId) throws java.lang.Exception {
+        return getService().getSkinnyJournalArticleVersions(groupId, articleId);
+    }
+
+    public static com.liferay.skinny.model.SkinnyJournalArticle getSkinnyJournalArticleByVersion(
+        long groupId, java.lang.String articleId, java.lang.String version,
+        java.lang.String locale) throws java.lang.Exception {
+        return getService()
+                   .getSkinnyJournalArticleByVersion(groupId, articleId,
+            version, locale);
+    }
+
     public static void clearService() {
         _service = null;
     }

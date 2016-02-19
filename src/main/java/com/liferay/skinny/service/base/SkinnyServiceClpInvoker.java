@@ -19,6 +19,10 @@ public class SkinnyServiceClpInvoker {
     private String[] _methodParameterTypes43;
     private String _methodName44;
     private String[] _methodParameterTypes44;
+    private String _methodName45;
+    private String[] _methodParameterTypes45;
+    private String _methodName46;
+    private String[] _methodParameterTypes46;
 
     public SkinnyServiceClpInvoker() {
         _methodName38 = "getBeanIdentifier";
@@ -43,6 +47,17 @@ public class SkinnyServiceClpInvoker {
 
         _methodParameterTypes44 = new String[] {
                 "long", "java.lang.String", "int", "java.lang.String"
+            };
+
+        _methodName45 = "getSkinnyJournalArticleVersions";
+
+        _methodParameterTypes45 = new String[] { "long", "java.lang.String" };
+
+        _methodName46 = "getSkinnyJournalArticleByVersion";
+
+        _methodParameterTypes46 = new String[] {
+                "long", "java.lang.String", "java.lang.String",
+                "java.lang.String"
             };
     }
 
@@ -79,6 +94,19 @@ public class SkinnyServiceClpInvoker {
                 (java.lang.String) arguments[1],
                 ((Integer) arguments[2]).intValue(),
                 (java.lang.String) arguments[3]);
+        }
+
+        if (_methodName45.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes45, parameterTypes)) {
+            return SkinnyServiceUtil.getSkinnyJournalArticleVersions(((Long) arguments[0]).longValue(),
+                (java.lang.String) arguments[1]);
+        }
+
+        if (_methodName46.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes46, parameterTypes)) {
+            return SkinnyServiceUtil.getSkinnyJournalArticleByVersion(((Long) arguments[0]).longValue(),
+                (java.lang.String) arguments[1],
+                (java.lang.String) arguments[2], (java.lang.String) arguments[3]);
         }
 
         throw new UnsupportedOperationException();

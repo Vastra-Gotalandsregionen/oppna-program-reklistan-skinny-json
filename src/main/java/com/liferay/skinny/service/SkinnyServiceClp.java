@@ -18,6 +18,10 @@ public class SkinnyServiceClp implements SkinnyService {
     private String[] _methodParameterTypes4;
     private String _methodName5;
     private String[] _methodParameterTypes5;
+    private String _methodName6;
+    private String[] _methodParameterTypes6;
+    private String _methodName7;
+    private String[] _methodParameterTypes7;
 
     public SkinnyServiceClp(InvokableService invokableService) {
         _invokableService = invokableService;
@@ -44,6 +48,17 @@ public class SkinnyServiceClp implements SkinnyService {
 
         _methodParameterTypes5 = new String[] {
                 "long", "java.lang.String", "int", "java.lang.String"
+            };
+
+        _methodName6 = "getSkinnyJournalArticleVersions";
+
+        _methodParameterTypes6 = new String[] { "long", "java.lang.String" };
+
+        _methodName7 = "getSkinnyJournalArticleByVersion";
+
+        _methodParameterTypes7 = new String[] {
+                "long", "java.lang.String", "java.lang.String",
+                "java.lang.String"
             };
     }
 
@@ -170,6 +185,73 @@ public class SkinnyServiceClp implements SkinnyService {
                     ClpSerializer.translateInput(articleId),
                         
                     status,
+                        
+                    ClpSerializer.translateInput(locale)
+                    });
+        } catch (Throwable t) {
+            t = ClpSerializer.translateThrowable(t);
+
+            if (t instanceof java.lang.Exception) {
+                throw (java.lang.Exception) t;
+            }
+
+            if (t instanceof RuntimeException) {
+                throw (RuntimeException) t;
+            } else {
+                throw new RuntimeException(t.getClass().getName() +
+                    " is not a valid exception");
+            }
+        }
+
+        return (com.liferay.skinny.model.SkinnyJournalArticle) ClpSerializer.translateOutput(returnObj);
+    }
+
+    @Override
+    public java.util.List<com.liferay.skinny.model.SkinnyJournalArticleVersionMetadata> getSkinnyJournalArticleVersions(
+        long groupId, java.lang.String articleId) throws java.lang.Exception {
+        Object returnObj = null;
+
+        try {
+            returnObj = _invokableService.invokeMethod(_methodName6,
+                    _methodParameterTypes6,
+                    new Object[] {
+                        groupId,
+                        
+                    ClpSerializer.translateInput(articleId)
+                    });
+        } catch (Throwable t) {
+            t = ClpSerializer.translateThrowable(t);
+
+            if (t instanceof java.lang.Exception) {
+                throw (java.lang.Exception) t;
+            }
+
+            if (t instanceof RuntimeException) {
+                throw (RuntimeException) t;
+            } else {
+                throw new RuntimeException(t.getClass().getName() +
+                    " is not a valid exception");
+            }
+        }
+
+        return (java.util.List<com.liferay.skinny.model.SkinnyJournalArticleVersionMetadata>) ClpSerializer.translateOutput(returnObj);
+    }
+
+    @Override
+    public com.liferay.skinny.model.SkinnyJournalArticle getSkinnyJournalArticleByVersion(
+        long groupId, java.lang.String articleId, java.lang.String version,
+        java.lang.String locale) throws java.lang.Exception {
+        Object returnObj = null;
+
+        try {
+            returnObj = _invokableService.invokeMethod(_methodName7,
+                    _methodParameterTypes7,
+                    new Object[] {
+                        groupId,
+                        
+                    ClpSerializer.translateInput(articleId),
+                        
+                    ClpSerializer.translateInput(version),
                         
                     ClpSerializer.translateInput(locale)
                     });
