@@ -14,6 +14,7 @@
 
 package com.liferay.skinny.service.impl;
 
+import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.FastDateFormatFactoryUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
@@ -33,8 +34,10 @@ import com.liferay.portlet.dynamicdatamapping.model.DDMStructure;
 import com.liferay.portlet.dynamicdatamapping.storage.Fields;
 import com.liferay.portlet.journal.NoSuchArticleException;
 import com.liferay.portlet.journal.model.JournalArticle;
+import com.liferay.portlet.journal.util.comparator.ArticleVersionComparator;
 import com.liferay.skinny.model.SkinnyDDLRecord;
 import com.liferay.skinny.model.SkinnyJournalArticle;
+import com.liferay.skinny.model.SkinnyJournalArticleVersionMetadata;
 import com.liferay.skinny.service.base.SkinnyServiceBaseImpl;
 
 import java.io.Serializable;
@@ -159,6 +162,51 @@ public class SkinnyServiceImpl extends SkinnyServiceBaseImpl {
 
 	}
 
+    @AccessControlled(guestAccessEnabled = true)
+    @Override
+    public List<SkinnyJournalArticleVersionMetadata> getSkinnyJournalArticleVersions(long groupId, String articleId)
+        throws Exception {
+        
+        List<JournalArticle> articles = journalArticlePersistence.findByG_A(groupId, articleId,
+                QueryUtil.ALL_POS, QueryUtil.ALL_POS, new ArticleVersionComparator());
+        
+        List<SkinnyJournalArticleVersionMetadata> metadataList = new ArrayList<>(articles.size());
+        
+        for (JournalArticle article : articles) {
+            metadataList.add(new SkinnyJournalArticleVersionMetadata(
+                    article.getGroupId(), article.getArticleId(), article.getVersion(),
+                    article.getModifiedDate(), article.getUserName()));
+        }
+        
+        return metadataList;
+    }
+
+    @AccessControlled(guestAccessEnabled = true)
+    @Override
+    public SkinnyJournalArticle getSkinnyJournalArticleByVersion(long groupId, String articleId, String version, 
+                                                                 String locale) 
+        throws Exception {
+        
+        double v = Double.parseDouble(version);
+
+        PermissionChecker permissionChecker = getPermissionChecker();
+
+        JournalArticle article = journalArticleLocalService.fetchArticle(groupId, articleId, v);
+
+        if (article == null) {
+            throw new NoSuchArticleException();
+        }
+        
+        if (!permissionChecker.hasPermission(
+                groupId, JournalArticle.class.getName(),
+                article.getResourcePrimKey(), ActionKeys.VIEW)) {
+
+            throw new NoSuchArticleException();
+        }
+        
+        return getSkinnyJournalArticle(article, locale);
+    }
+    
 	protected SkinnyDDLRecord getSkinnyDDLRecord(DDLRecord ddlRecord, DDMStructure ddmStructure)
 			throws Exception {
 
