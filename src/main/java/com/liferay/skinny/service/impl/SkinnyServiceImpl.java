@@ -59,7 +59,7 @@ public class SkinnyServiceImpl extends SkinnyServiceBaseImpl {
 		throws Exception {
 
 		List<SkinnyDDLRecord> skinnyDDLRecords =
-			new ArrayList<SkinnyDDLRecord>();
+			new ArrayList<>();
 
 		PermissionChecker permissionChecker = getPermissionChecker();
 
@@ -88,14 +88,14 @@ public class SkinnyServiceImpl extends SkinnyServiceBaseImpl {
 		throws Exception {
 
 		List<SkinnyJournalArticle> skinnyJournalArticles =
-			new ArrayList<SkinnyJournalArticle>();
+			new ArrayList<>();
 
 		Group group = groupLocalService.getGroup(companyId, groupName);
 
 		DDMStructure ddmStructure = ddmStructureLocalService.getDDMStructure(
 				ddmStructureId);
 
-		Set<String> journalArticleIds = new HashSet<String>();
+		Set<String> journalArticleIds = new HashSet<>();
 
 		List<JournalArticle> journalArticles =
 			journalArticleLocalService.getStructureArticles(
@@ -173,8 +173,8 @@ public class SkinnyServiceImpl extends SkinnyServiceBaseImpl {
 	protected void populateSkinnyDDLRecord(SkinnyDDLRecord skinnyDDLRecord, DDMStructure ddmStructure, Fields fields) throws Exception {
 		String rawDisplayFieldsValue = (String) fields.get("_fieldsDisplay").getValue();
 		String[] rawDisplayFields = rawDisplayFieldsValue.split(",");
-		List<Occurrence> occurrences = new ArrayList<Occurrence>(rawDisplayFields.length);
-		Map<String, Integer> fieldCounts = new HashMap<String, Integer>();
+		List<Occurrence> occurrences = new ArrayList<>(rawDisplayFields.length);
+		Map<String, Integer> fieldCounts = new HashMap<>();
 		for (String instanceFieldName : rawDisplayFields) {
 			String fieldName = instanceFieldName.replaceAll("_INSTANCE_.*$", "");
 			Integer count = fieldCounts.get(fieldName);
@@ -187,8 +187,8 @@ public class SkinnyServiceImpl extends SkinnyServiceBaseImpl {
 			}
 		}
 
-		Map<String, List<Map<String, Object>>> targets = new HashMap<String, List<Map<String, Object>>>();
-		List<Map<String, Object>> rootFieldOccurrences = new ArrayList<Map<String, Object>>();
+		Map<String, List<Map<String, Object>>> targets = new HashMap<>();
+		List<Map<String, Object>> rootFieldOccurrences = new ArrayList<>();
 		for (String rootFieldName : ddmStructure.getRootFieldNames()) {
 			targets.put(rootFieldName, rootFieldOccurrences);
 		}
@@ -202,7 +202,7 @@ public class SkinnyServiceImpl extends SkinnyServiceBaseImpl {
 
 			List<String> childrenFieldNames = ddmStructure.getChildrenFieldNames(fieldName);
 			if (!childrenFieldNames.isEmpty()) {
-				List<Map<String, Object>> children = new ArrayList<Map<String, Object>>();
+				List<Map<String, Object>> children = new ArrayList<>();
 				field.put("children", children);
 
 				for (String childFieldName : childrenFieldNames) {
@@ -287,7 +287,7 @@ public class SkinnyServiceImpl extends SkinnyServiceBaseImpl {
 
 	protected List<Map<String, Object>> getNodeObjects(Element parent)  {
 
-		List<Map<String, Object>> children = new ArrayList<Map<String, Object>>();
+		List<Map<String, Object>> children = new ArrayList<>();
 		for (Node child : parent.selectNodes("dynamic-element")) {
 			children.add(getNodeObject((Element)child));
 		}
@@ -298,12 +298,12 @@ public class SkinnyServiceImpl extends SkinnyServiceBaseImpl {
 	}
 	protected Map<String, Object> getNodeObject(Element element)  {
 
-		Map<String, Object> fieldObj = new HashMap<String, Object>();
+		Map<String, Object> fieldObj = new HashMap<>();
 
 		fieldObj.put("name", element.attributeValue("name"));
 		fieldObj.put("value", element.element("dynamic-content").getTextTrim());
 
-		List<Map<String, Object>> children = new ArrayList<Map<String, Object>>();
+		List<Map<String, Object>> children = new ArrayList<>();
 
 		for (Node child: element.selectNodes("dynamic-element")) {
 			children.add(getNodeObject((Element)child));

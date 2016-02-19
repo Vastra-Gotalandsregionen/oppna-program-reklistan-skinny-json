@@ -43,7 +43,7 @@ public class SkinnyBaseModel {
 	}
 
 	private List<Map<String, Object>> _fields =
-		new ArrayList<Map<String, Object>>();
+		new ArrayList<>();
 
 	private String _uuid = null;
 
