@@ -175,7 +175,7 @@ public class SkinnyServiceImpl extends SkinnyServiceBaseImpl {
         for (JournalArticle article : articles) {
             metadataList.add(new SkinnyJournalArticleVersionMetadata(
                     article.getGroupId(), article.getArticleId(), article.getVersion(),
-                    article.getModifiedDate(), article.getUserName()));
+                    article.getModifiedDate(), article.getUserName(), article.getStatus()));
         }
         
         return metadataList;

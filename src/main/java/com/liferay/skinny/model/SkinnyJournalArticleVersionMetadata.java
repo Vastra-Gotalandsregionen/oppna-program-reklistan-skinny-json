@@ -12,14 +12,16 @@ public class SkinnyJournalArticleVersionMetadata {
     private final double version;
     private final Date modifiedDate;
     private final String author;
+    private final int status;
 
     public SkinnyJournalArticleVersionMetadata(long groupId, String articleId, double version,
-                                               Date modifiedDate, String author) {
+                                               Date modifiedDate, String author, int status) {
         this.groupId = groupId;
         this.articleId = articleId;
         this.version = version;
         this.modifiedDate = modifiedDate;
         this.author = author;
+        this.status = status;
     }
 
     public long getGroupId() {
@@ -40,5 +42,9 @@ public class SkinnyJournalArticleVersionMetadata {
 
     public String getAuthor() {
         return author;
+    }
+    
+    public int getStatus() {
+        return status;
     }
 }
