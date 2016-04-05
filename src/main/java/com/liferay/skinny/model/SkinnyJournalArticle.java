@@ -14,25 +14,18 @@
 
 package com.liferay.skinny.model;
 
-import com.liferay.portal.kernel.util.LocaleUtil;
-import com.liferay.portal.kernel.util.LocalizationUtil;
-
-import java.util.Locale;
-import java.util.Map;
-
 /**
  * @author James Falkner
  */
 public class SkinnyJournalArticle extends SkinnyBaseModel {
 
+    private String title;
+    
     public void setTitle(String title) {
-        this._title = title;
+        this.title = title;
     }
 
     public String getTitle() {
-        return _title;
+        return title;
     }
-
-    private String _title;
-
 }

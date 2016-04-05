@@ -17,7 +17,6 @@ package com.liferay.skinny.model;
 import com.liferay.portal.kernel.json.JSON;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -26,26 +25,24 @@ import java.util.Map;
  */
 public class SkinnyBaseModel {
 
+	private List<Map<String, Object>> fields =
+		new ArrayList<>();
+    
+	private String uuid = null;
+    
 	public void setUuid(String uuid) {
-		_uuid = uuid;
+		this.uuid = uuid;
 	}
 	public String getUuid() {
-		return _uuid;
+		return uuid;
 	}
 
 	public void addField(Map<String, Object> field) {
-		_fields.add(field);
+		fields.add(field);
 	}
 
 	@JSON
 	public List<Map<String, Object>> getFields() {
-		return _fields;
+		return fields;
 	}
-
-	private List<Map<String, Object>> _fields =
-		new ArrayList<>();
-
-	private String _uuid = null;
-
-
 }
