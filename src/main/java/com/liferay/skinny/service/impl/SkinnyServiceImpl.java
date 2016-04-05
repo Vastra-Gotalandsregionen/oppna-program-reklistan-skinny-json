@@ -15,6 +15,8 @@
 package com.liferay.skinny.service.impl;
 
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.FastDateFormatFactoryUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
@@ -34,6 +36,7 @@ import com.liferay.portlet.dynamicdatamapping.model.DDMStructure;
 import com.liferay.portlet.dynamicdatamapping.storage.Fields;
 import com.liferay.portlet.journal.NoSuchArticleException;
 import com.liferay.portlet.journal.model.JournalArticle;
+import com.liferay.portlet.journal.model.JournalFolder;
 import com.liferay.portlet.journal.util.comparator.ArticleVersionComparator;
 import com.liferay.skinny.model.SkinnyDDLRecord;
 import com.liferay.skinny.model.SkinnyJournalArticle;
@@ -43,6 +46,7 @@ import com.liferay.skinny.service.base.SkinnyServiceBaseImpl;
 import java.io.Serializable;
 import java.text.Format;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -303,9 +307,9 @@ public class SkinnyServiceImpl extends SkinnyServiceBaseImpl {
 		SkinnyJournalArticle skinnyJournalArticle = new SkinnyJournalArticle();
 
 		skinnyJournalArticle.setUuid(journalArticle.getUuid());
-
 		skinnyJournalArticle.setTitle(journalArticle.getTitle(locale));
-
+        skinnyJournalArticle.setPath(getArticlePath(journalArticle));
+        
 		String content = null;
 
 		if (ArrayUtil.contains(journalArticle.getAvailableLocales(), locale)) {
@@ -375,5 +379,19 @@ public class SkinnyServiceImpl extends SkinnyServiceBaseImpl {
 		final String name;
 		final int index;
 	}
+    
+    
+    protected static List<String> getArticlePath(JournalArticle journalArticle)
+        throws PortalException, SystemException {
+        
+        JournalFolder folder = journalArticle.getFolder();
+        List<String> pathElements = new ArrayList<>();
+        while (folder != null) {
+            pathElements.add(folder.getName());
+            folder = folder.getParentFolder();
+        }
 
+        Collections.reverse(pathElements);
+        return Collections.unmodifiableList(pathElements);
+    }
 }
