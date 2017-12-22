@@ -1,94 +1,68 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+<?xml version="1.0"?>
 
+<project
+    xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+>
+    <modelVersion>4.0.0</modelVersion>
     <groupId>se.vgregion.reklistan.liferay</groupId>
-	<artifactId>skinny-web</artifactId>
-	<packaging>war</packaging>
-	<name>Skinny JSON WebService</name>
-	<version>1.1-SNAPSHOT</version>
-
+    <artifactId>skinny-web</artifactId>
+    <name>Skinny JSON WebService :: Parent</name>
+    <version>1.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
     <properties>
-        <liferay.version>6.2.5</liferay.version>
-        <liferay.maven.plugin.version>6.2.5</liferay.maven.plugin.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
-	<build>
-        <finalName>${project.artifactId}</finalName>
-		<plugins>
-			<plugin>
-				<groupId>com.liferay.maven.plugins</groupId>
-				<artifactId>liferay-maven-plugin</artifactId>
-				<version>${liferay.version}</version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
                 <configuration>
-                    <liferayVersion>${liferay.version}</liferayVersion>
-                    <pluginType>web</pluginType>
-                    <sqlDir>src/main/resources/sql</sqlDir>
-                    <serviceFileName>src/main/resources/service.xml</serviceFileName>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
-			</plugin>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-                <version>3.5.1</version>
-				<configuration>
-					<encoding>UTF-8</encoding>
-					<source>1.7</source>
-					<target>1.7</target>
-				</configuration>
-			</plugin>
-			<plugin>
-				<artifactId>maven-resources-plugin</artifactId>
-                <version>2.7</version>
-				<configuration>
-					<encoding>UTF-8</encoding>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
-
-	<dependencies>
-	   <dependency>
-		    <groupId>com.liferay.portal</groupId>
-		    <artifactId>com.liferay.portal.kernel</artifactId>
-		    <version>2.56.0</version>
-		    <scope>provided</scope>
-		</dependency>
-		<dependency>
-		    <groupId>com.liferay.portal</groupId>
-		    <artifactId>com.liferay.util.java</artifactId>
-		    <version>2.4.0</version>
-		    <scope>provided</scope>
-		</dependency>
-		<dependency>
-		    <groupId>com.liferay</groupId>
-		    <artifactId>com.liferay.dynamic.data.lists.api</artifactId>
-		    <version>2.1.7</version>
-		    <scope>provided</scope>
-		</dependency>
-		<dependency>
-		    <groupId>com.liferay</groupId>
-		    <artifactId>com.liferay.dynamic.data.mapping.api</artifactId>
-		    <version>3.7.2</version>
-		    <scope>provided</scope>
-		</dependency>
-		<dependency>
-		    <groupId>com.liferay</groupId>
-		    <artifactId>com.liferay.journal.api</artifactId>
-		    <version>2.12.1</version>
-		    <scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>javax.portlet</groupId>
-			<artifactId>portlet-api</artifactId>
-			<version>2.0</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>3.0.1</version>
-			<scope>provided</scope>
-		</dependency>
-	</dependencies>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <archive>
+                        <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>biz.aQute.bnd</groupId>
+                <artifactId>bnd-maven-plugin</artifactId>
+                <version>3.3.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>bnd-process</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>biz.aQute.bnd</groupId>
+                        <artifactId>biz.aQute.bndlib</artifactId>
+                        <version>3.2.0</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>com.liferay</groupId>
+                        <artifactId>com.liferay.ant.bnd</artifactId>
+                        <version>2.0.41</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+    <modules>
+        <module>skinny-web-api</module>
+        <module>skinny-web-service</module>
+    </modules>
 </project>
