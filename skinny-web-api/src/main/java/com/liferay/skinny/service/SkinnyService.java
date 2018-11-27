@@ -62,33 +62,32 @@ public interface SkinnyService extends BaseService {
 	*
 	* @return the OSGi service identifier
 	*/
-	public java.lang.String getOSGiServiceIdentifier();
+	public String getOSGiServiceIdentifier();
 
 	@AccessControlled(guestAccessEnabled = true)
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<SkinnyDDLRecord> getSkinnyDDLRecords(long ddlRecordSetId)
-		throws java.lang.Exception;
+		throws Exception;
 
 	@AccessControlled(guestAccessEnabled = true)
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public SkinnyJournalArticle getSkinnyJournalArticle(long groupId,
-		java.lang.String articleId, int status, java.lang.String locale)
-		throws java.lang.Exception;
+		String articleId, int status, String locale) throws Exception;
 
 	@AccessControlled(guestAccessEnabled = true)
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public SkinnyJournalArticle getSkinnyJournalArticleByVersion(long groupId,
-		java.lang.String articleId, java.lang.String version,
-		java.lang.String locale) throws java.lang.Exception;
+		String articleId, String version, String locale)
+		throws Exception;
 
 	@AccessControlled(guestAccessEnabled = true)
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<SkinnyJournalArticle> getSkinnyJournalArticles(long companyId,
-		java.lang.String groupName, long ddmStructureId, java.lang.String locale)
-		throws java.lang.Exception;
+		String groupName, long ddmStructureId, String locale)
+		throws Exception;
 
 	@AccessControlled(guestAccessEnabled = true)
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<SkinnyJournalArticleVersionMetadata> getSkinnyJournalArticleVersions(
-		long groupId, java.lang.String articleId) throws java.lang.Exception;
+		long groupId, String articleId) throws Exception;
 }

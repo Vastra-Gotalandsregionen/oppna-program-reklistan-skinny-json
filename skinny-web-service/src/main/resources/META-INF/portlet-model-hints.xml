@@ -1,3 +1,7 @@
 <?xml version="1.0"?>
 
-<model-hints></model-hints>
+<model-hints>
+	<model name="com.liferay.skinny.model.Skinny">
+		<field name="dummyId" type="long" />
+	</model>
+</model-hints>

@@ -38,43 +38,43 @@ public class SkinnyServiceWrapper implements SkinnyService,
 	* @return the OSGi service identifier
 	*/
 	@Override
-	public java.lang.String getOSGiServiceIdentifier() {
+	public String getOSGiServiceIdentifier() {
 		return _skinnyService.getOSGiServiceIdentifier();
 	}
 
 	@Override
 	public java.util.List<com.liferay.skinny.model.SkinnyDDLRecord> getSkinnyDDLRecords(
-		long ddlRecordSetId) throws java.lang.Exception {
+		long ddlRecordSetId) throws Exception {
 		return _skinnyService.getSkinnyDDLRecords(ddlRecordSetId);
 	}
 
 	@Override
 	public com.liferay.skinny.model.SkinnyJournalArticle getSkinnyJournalArticle(
-		long groupId, java.lang.String articleId, int status,
-		java.lang.String locale) throws java.lang.Exception {
+		long groupId, String articleId, int status, String locale)
+		throws Exception {
 		return _skinnyService.getSkinnyJournalArticle(groupId, articleId,
 			status, locale);
 	}
 
 	@Override
 	public com.liferay.skinny.model.SkinnyJournalArticle getSkinnyJournalArticleByVersion(
-		long groupId, java.lang.String articleId, java.lang.String version,
-		java.lang.String locale) throws java.lang.Exception {
+		long groupId, String articleId, String version, String locale)
+		throws Exception {
 		return _skinnyService.getSkinnyJournalArticleByVersion(groupId,
 			articleId, version, locale);
 	}
 
 	@Override
 	public java.util.List<com.liferay.skinny.model.SkinnyJournalArticle> getSkinnyJournalArticles(
-		long companyId, java.lang.String groupName, long ddmStructureId,
-		java.lang.String locale) throws java.lang.Exception {
+		long companyId, String groupName, long ddmStructureId, String locale)
+		throws Exception {
 		return _skinnyService.getSkinnyJournalArticles(companyId, groupName,
 			ddmStructureId, locale);
 	}
 
 	@Override
 	public java.util.List<com.liferay.skinny.model.SkinnyJournalArticleVersionMetadata> getSkinnyJournalArticleVersions(
-		long groupId, java.lang.String articleId) throws java.lang.Exception {
+		long groupId, String articleId) throws Exception {
 		return _skinnyService.getSkinnyJournalArticleVersions(groupId, articleId);
 	}
 

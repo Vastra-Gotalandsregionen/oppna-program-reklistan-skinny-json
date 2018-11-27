@@ -30,11 +30,12 @@ import com.liferay.portal.kernel.service.BaseServiceImpl;
 import com.liferay.portal.kernel.service.persistence.ClassNamePersistence;
 import com.liferay.portal.kernel.service.persistence.GroupPersistence;
 import com.liferay.portal.kernel.service.persistence.UserPersistence;
-import com.liferay.portal.kernel.util.InfrastructureUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.spring.extender.service.ServiceReference;
 
+import com.liferay.skinny.model.Skinny;
 import com.liferay.skinny.service.SkinnyService;
+import com.liferay.skinny.service.persistence.SkinnyPersistence;
 
 import javax.sql.DataSource;
 
@@ -74,6 +75,24 @@ public abstract class SkinnyServiceBaseImpl extends BaseServiceImpl
 	 */
 	public void setSkinnyService(SkinnyService skinnyService) {
 		this.skinnyService = skinnyService;
+	}
+
+	/**
+	 * Returns the skinny persistence.
+	 *
+	 * @return the skinny persistence
+	 */
+	public SkinnyPersistence getSkinnyPersistence() {
+		return skinnyPersistence;
+	}
+
+	/**
+	 * Sets the skinny persistence.
+	 *
+	 * @param skinnyPersistence the skinny persistence
+	 */
+	public void setSkinnyPersistence(SkinnyPersistence skinnyPersistence) {
+		this.skinnyPersistence = skinnyPersistence;
 	}
 
 	/**
@@ -470,6 +489,14 @@ public abstract class SkinnyServiceBaseImpl extends BaseServiceImpl
 		return SkinnyService.class.getName();
 	}
 
+	protected Class<?> getModelClass() {
+		return Skinny.class;
+	}
+
+	protected String getModelClassName() {
+		return Skinny.class.getName();
+	}
+
 	/**
 	 * Performs a SQL query.
 	 *
@@ -477,7 +504,7 @@ public abstract class SkinnyServiceBaseImpl extends BaseServiceImpl
 	 */
 	protected void runSQL(String sql) {
 		try {
-			DataSource dataSource = InfrastructureUtil.getDataSource();
+			DataSource dataSource = skinnyPersistence.getDataSource();
 
 			DB db = DBManagerUtil.getDB();
 
@@ -496,6 +523,8 @@ public abstract class SkinnyServiceBaseImpl extends BaseServiceImpl
 
 	@BeanReference(type = SkinnyService.class)
 	protected SkinnyService skinnyService;
+	@BeanReference(type = SkinnyPersistence.class)
+	protected SkinnyPersistence skinnyPersistence;
 	@ServiceReference(type = com.liferay.counter.kernel.service.CounterLocalService.class)
 	protected com.liferay.counter.kernel.service.CounterLocalService counterLocalService;
 	@ServiceReference(type = com.liferay.dynamic.data.lists.service.DDLRecordSetLocalService.class)
