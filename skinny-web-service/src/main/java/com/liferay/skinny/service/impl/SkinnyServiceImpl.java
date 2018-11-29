@@ -80,7 +80,6 @@ public class SkinnyServiceImpl extends SkinnyServiceBaseImpl {
      */
 
     @AccessControlled(guestAccessEnabled = true)
-    @Override
     public List<SkinnyDDLRecord> getSkinnyDDLRecords(long ddlRecordSetId) throws Exception {
 
         List<SkinnyDDLRecord> skinnyDDLRecords = new ArrayList<>();
@@ -90,7 +89,7 @@ public class SkinnyServiceImpl extends SkinnyServiceBaseImpl {
         DDLRecordSet ddlRecordSet = ddlRecordSetLocalService.getRecordSet(ddlRecordSetId);
 
         if (permissionChecker.hasPermission(ddlRecordSet.getGroupId(), DDLRecordSet.class.getName(),
-                ddlRecordSet.getRecordSetId(), ActionKeys.VIEW)) {
+            ddlRecordSet.getRecordSetId(), ActionKeys.VIEW)) {
 
             for (DDLRecord ddlRecord : ddlRecordSet.getRecords()) {
                 SkinnyDDLRecord skinnyDDLRecord = getSkinnyDDLRecord(ddlRecord, ddlRecordSet.getDDMStructure());
@@ -103,9 +102,8 @@ public class SkinnyServiceImpl extends SkinnyServiceBaseImpl {
     }
 
     @AccessControlled(guestAccessEnabled = true)
-    @Override
     public List<SkinnyJournalArticle> getSkinnyJournalArticles(long companyId, String groupName, long ddmStructureId,
-            String locale) throws Exception {
+        String locale) throws Exception {
 
         List<SkinnyJournalArticle> skinnyJournalArticles = new ArrayList<>();
 
@@ -116,7 +114,7 @@ public class SkinnyServiceImpl extends SkinnyServiceBaseImpl {
         Set<String> journalArticleIds = new HashSet<>();
 
         List<JournalArticle> journalArticles = journalArticleLocalService.getStructureArticles(group.getGroupId(),
-                ddmStructure.getStructureKey());
+            ddmStructure.getStructureKey());
 
         for (JournalArticle journalArticle : journalArticles) {
             if (journalArticleIds.contains(journalArticle.getArticleId())) {
@@ -129,10 +127,10 @@ public class SkinnyServiceImpl extends SkinnyServiceBaseImpl {
                 PermissionChecker permissionChecker = getPermissionChecker();
 
                 if (permissionChecker.hasPermission(group.getGroupId(), JournalArticle.class.getName(),
-                        journalArticle.getResourcePrimKey(), ActionKeys.VIEW)) {
+                    journalArticle.getResourcePrimKey(), ActionKeys.VIEW)) {
 
                     JournalArticle latestJournalArticle = journalArticleLocalService.getLatestArticle(
-                            group.getGroupId(), journalArticle.getArticleId(), WorkflowConstants.STATUS_APPROVED);
+                        group.getGroupId(), journalArticle.getArticleId(), WorkflowConstants.STATUS_APPROVED);
 
                     SkinnyJournalArticle skinnyJournalArticle = getSkinnyJournalArticle(latestJournalArticle, locale);
 
@@ -146,20 +144,19 @@ public class SkinnyServiceImpl extends SkinnyServiceBaseImpl {
     }
 
     @AccessControlled(guestAccessEnabled = true)
-    @Override
     public SkinnyJournalArticle getSkinnyJournalArticle(long groupId, String articleId, int status, String locale)
-            throws Exception {
+        throws Exception {
 
         JournalArticle journalArticle = journalArticleLocalService.getLatestArticle(groupId, articleId, status);
 
         PermissionChecker permissionChecker = getPermissionChecker();
 
         if (!permissionChecker.hasPermission(groupId, JournalArticle.class.getName(),
-                journalArticle.getResourcePrimKey(), ActionKeys.VIEW)) {
+            journalArticle.getResourcePrimKey(), ActionKeys.VIEW)) {
 
             String msg = String.format(
-                    "No JournalArticle exists with the key " + "{groupId=%d, articleId=%s, status=%d}", groupId,
-                    articleId, status);
+                "No JournalArticle exists with the key " + "{groupId=%d, articleId=%s, status=%d}", groupId,
+                articleId, status);
             throw new NoSuchArticleException(msg);
         }
 
@@ -168,27 +165,25 @@ public class SkinnyServiceImpl extends SkinnyServiceBaseImpl {
     }
 
     @AccessControlled(guestAccessEnabled = true)
-    @Override
     public List<SkinnyJournalArticleVersionMetadata> getSkinnyJournalArticleVersions(long groupId, String articleId)
-            throws Exception {
+        throws Exception {
 
         List<JournalArticle> articles = journalArticlePersistence.findByG_A(groupId, articleId, QueryUtil.ALL_POS,
-                QueryUtil.ALL_POS, new ArticleVersionComparator());
+            QueryUtil.ALL_POS, new ArticleVersionComparator());
 
         List<SkinnyJournalArticleVersionMetadata> metadataList = new ArrayList<>(articles.size());
 
         for (JournalArticle article : articles) {
             metadataList.add(new SkinnyJournalArticleVersionMetadata(article.getGroupId(), article.getArticleId(),
-                    article.getVersion(), article.getModifiedDate(), article.getUserName(), article.getStatus()));
+                article.getVersion(), article.getModifiedDate(), article.getUserName(), article.getStatus()));
         }
 
         return metadataList;
     }
 
     @AccessControlled(guestAccessEnabled = true)
-    @Override
     public SkinnyJournalArticle getSkinnyJournalArticleByVersion(long groupId, String articleId, String version,
-            String locale) throws Exception {
+        String locale) throws Exception {
 
         double v = Double.parseDouble(version);
 
@@ -201,7 +196,7 @@ public class SkinnyServiceImpl extends SkinnyServiceBaseImpl {
         }
 
         if (!permissionChecker.hasPermission(groupId, JournalArticle.class.getName(), article.getResourcePrimKey(),
-                ActionKeys.VIEW)) {
+            ActionKeys.VIEW)) {
 
             throw new NoSuchArticleException();
         }
@@ -222,7 +217,7 @@ public class SkinnyServiceImpl extends SkinnyServiceBaseImpl {
     }
 
     protected void populateSkinnyDDLRecord(SkinnyDDLRecord skinnyDDLRecord, DDMStructure ddmStructure, Fields fields)
-            throws Exception {
+        throws Exception {
         String rawDisplayFieldsValue = (String) fields.get("_fieldsDisplay").getValue();
         String[] rawDisplayFields = rawDisplayFieldsValue.split(",");
         List<Occurrence> occurrences = new ArrayList<>(rawDisplayFields.length);
@@ -250,7 +245,7 @@ public class SkinnyServiceImpl extends SkinnyServiceBaseImpl {
             Map<String, Object> field = new HashMap<String, Object>();
             field.put("name", fieldName);
             field.put("value", getStringValue(fields.get(fieldName).getType(),
-                    fields.get(fieldName).getValue(Locale.getDefault(), occurrence.index)));
+                fields.get(fieldName).getValue(Locale.getDefault(), occurrence.index)));
 
             List<String> childrenFieldNames = ddmStructure.getChildrenFieldNames(fieldName);
             if (!childrenFieldNames.isEmpty()) {
@@ -295,7 +290,7 @@ public class SkinnyServiceImpl extends SkinnyServiceBaseImpl {
     }
 
     protected SkinnyJournalArticle getSkinnyJournalArticle(JournalArticle journalArticle, String languageId)
-            throws Exception {
+        throws Exception {
 
         SkinnyJournalArticle skinnyJournalArticle = new SkinnyJournalArticle();
 
@@ -368,7 +363,7 @@ public class SkinnyServiceImpl extends SkinnyServiceBaseImpl {
     }
 
     protected static List<String> getArticlePath(JournalArticle journalArticle)
-            throws PortalException, SystemException {
+        throws PortalException, SystemException {
 
         JournalFolder folder = journalArticle.getFolder();
         List<String> pathElements = new ArrayList<>();
