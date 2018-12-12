@@ -46,7 +46,7 @@ import java.util.List;
 @AccessControlled
 @JSONWebService
 @OSGiBeanProperties(property =  {
-	"json.web.service.context.name=skinny", "json.web.service.context.path=Skinny"}, service = SkinnyService.class)
+	"json.web.service.context.name=skinny-web", "json.web.service.context.path=Skinny"}, service = SkinnyService.class)
 @ProviderType
 @Transactional(isolation = Isolation.PORTAL, rollbackFor =  {
 	PortalException.class, SystemException.class})
