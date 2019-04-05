@@ -337,7 +337,19 @@ public class SkinnyServiceImpl extends SkinnyServiceBaseImpl {
         Map<String, Object> fieldObj = new HashMap<>();
 
         fieldObj.put("name", element.attributeValue("name"));
-        fieldObj.put("value", element.element("dynamic-content").getTextTrim());
+
+        if (element.attributeValue("type").equals("radio")) {
+            String textTrim = element.element("dynamic-content").getTextTrim();
+
+            if (textTrim != null && !textTrim.startsWith("[\"")) {
+                // Make return value in same form as in LP 6.2.
+                textTrim = "[\"" + textTrim + "\"]";
+            }
+
+            fieldObj.put("value", textTrim);
+        } else {
+            fieldObj.put("value", element.element("dynamic-content").getTextTrim());
+        }
 
         List<Map<String, Object>> children = new ArrayList<>();
 
