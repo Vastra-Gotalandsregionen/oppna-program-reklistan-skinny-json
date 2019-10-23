@@ -14,8 +14,6 @@
 
 package com.liferay.skinny.service;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.service.ServiceWrapper;
 
 /**
@@ -25,57 +23,70 @@ import com.liferay.portal.kernel.service.ServiceWrapper;
  * @see SkinnyService
  * @generated
  */
-@ProviderType
-public class SkinnyServiceWrapper implements SkinnyService,
-	ServiceWrapper<SkinnyService> {
+public class SkinnyServiceWrapper
+	implements ServiceWrapper<SkinnyService>, SkinnyService {
+
 	public SkinnyServiceWrapper(SkinnyService skinnyService) {
 		_skinnyService = skinnyService;
 	}
 
 	/**
-	* Returns the OSGi service identifier.
-	*
-	* @return the OSGi service identifier
-	*/
+	 * Returns the OSGi service identifier.
+	 *
+	 * @return the OSGi service identifier
+	 */
 	@Override
-	public java.lang.String getOSGiServiceIdentifier() {
+	public String getOSGiServiceIdentifier() {
 		return _skinnyService.getOSGiServiceIdentifier();
 	}
 
 	@Override
-	public java.util.List<com.liferay.skinny.model.SkinnyDDLRecord> getSkinnyDDLRecords(
-		long ddlRecordSetId) throws java.lang.Exception {
+	public java.util.List<com.liferay.skinny.model.SkinnyDDLRecord>
+			getSkinnyDDLRecords(long ddlRecordSetId)
+		throws Exception {
+
 		return _skinnyService.getSkinnyDDLRecords(ddlRecordSetId);
 	}
 
 	@Override
-	public com.liferay.skinny.model.SkinnyJournalArticle getSkinnyJournalArticle(
-		long groupId, java.lang.String articleId, int status,
-		java.lang.String locale) throws java.lang.Exception {
-		return _skinnyService.getSkinnyJournalArticle(groupId, articleId,
-			status, locale);
+	public com.liferay.skinny.model.SkinnyJournalArticle
+			getSkinnyJournalArticle(
+				long groupId, String articleId, int status, String locale)
+		throws Exception {
+
+		return _skinnyService.getSkinnyJournalArticle(
+			groupId, articleId, status, locale);
 	}
 
 	@Override
-	public com.liferay.skinny.model.SkinnyJournalArticle getSkinnyJournalArticleByVersion(
-		long groupId, java.lang.String articleId, java.lang.String version,
-		java.lang.String locale) throws java.lang.Exception {
-		return _skinnyService.getSkinnyJournalArticleByVersion(groupId,
-			articleId, version, locale);
+	public com.liferay.skinny.model.SkinnyJournalArticle
+			getSkinnyJournalArticleByVersion(
+				long groupId, String articleId, String version, String locale)
+		throws Exception {
+
+		return _skinnyService.getSkinnyJournalArticleByVersion(
+			groupId, articleId, version, locale);
 	}
 
 	@Override
-	public java.util.List<com.liferay.skinny.model.SkinnyJournalArticle> getSkinnyJournalArticles(
-		long companyId, java.lang.String groupName, long ddmStructureId,
-		java.lang.String locale) throws java.lang.Exception {
-		return _skinnyService.getSkinnyJournalArticles(companyId, groupName,
-			ddmStructureId, locale);
+	public java.util.List<com.liferay.skinny.model.SkinnyJournalArticle>
+			getSkinnyJournalArticles(
+				long companyId, String groupName, long ddmStructureId,
+				String locale)
+		throws Exception {
+
+		return _skinnyService.getSkinnyJournalArticles(
+			companyId, groupName, ddmStructureId, locale);
 	}
 
 	@Override
-	public java.util.List<com.liferay.skinny.model.SkinnyJournalArticleVersionMetadata> getSkinnyJournalArticleVersions(
-		long groupId, java.lang.String articleId) throws java.lang.Exception {
-		return _skinnyService.getSkinnyJournalArticleVersions(groupId, articleId);
+	public java.util.List
+		<com.liferay.skinny.model.SkinnyJournalArticleVersionMetadata>
+				getSkinnyJournalArticleVersions(long groupId, String articleId)
+			throws Exception {
+
+		return _skinnyService.getSkinnyJournalArticleVersions(
+			groupId, articleId);
 	}
 
 	@Override
@@ -89,4 +100,5 @@ public class SkinnyServiceWrapper implements SkinnyService,
 	}
 
 	private SkinnyService _skinnyService;
+
 }

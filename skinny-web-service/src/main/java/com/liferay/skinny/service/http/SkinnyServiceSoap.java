@@ -14,21 +14,18 @@
 
 package com.liferay.skinny.service.http;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
-
 import com.liferay.skinny.service.SkinnyServiceUtil;
 
 import java.rmi.RemoteException;
 
 /**
  * Provides the SOAP utility for the
- * {@link SkinnyServiceUtil} service utility. The
- * static methods of this class calls the same methods of the service utility.
- * However, the signatures are different because it is difficult for SOAP to
- * support certain types.
+ * <code>SkinnyServiceUtil</code> service
+ * utility. The static methods of this class call the same methods of the
+ * service utility. However, the signatures are different because it is
+ * difficult for SOAP to support certain types.
  *
  * <p>
  * The benefits of using the SOAP utility is that it is cross platform
@@ -49,18 +46,22 @@ import java.rmi.RemoteException;
  *
  * @author Brian Wing Shun Chan
  * @see SkinnyServiceHttp
- * @see SkinnyServiceUtil
  * @generated
  */
-@ProviderType
 public class SkinnyServiceSoap {
-	public static com.liferay.skinny.model.SkinnyDDLRecord[] getSkinnyDDLRecords(
-		long ddlRecordSetId) throws RemoteException {
-		try {
-			java.util.List<com.liferay.skinny.model.SkinnyDDLRecord> returnValue =
-				SkinnyServiceUtil.getSkinnyDDLRecords(ddlRecordSetId);
 
-			return returnValue.toArray(new com.liferay.skinny.model.SkinnyDDLRecord[returnValue.size()]);
+	public static com.liferay.skinny.model.SkinnyDDLRecord[]
+			getSkinnyDDLRecords(long ddlRecordSetId)
+		throws RemoteException {
+
+		try {
+			java.util.List<com.liferay.skinny.model.SkinnyDDLRecord>
+				returnValue = SkinnyServiceUtil.getSkinnyDDLRecords(
+					ddlRecordSetId);
+
+			return returnValue.toArray(
+				new com.liferay.skinny.model.SkinnyDDLRecord
+					[returnValue.size()]);
 		}
 		catch (Exception e) {
 			_log.error(e, e);
@@ -69,15 +70,20 @@ public class SkinnyServiceSoap {
 		}
 	}
 
-	public static com.liferay.skinny.model.SkinnyJournalArticle[] getSkinnyJournalArticles(
-		long companyId, java.lang.String groupName, long ddmStructureId,
-		java.lang.String locale) throws RemoteException {
-		try {
-			java.util.List<com.liferay.skinny.model.SkinnyJournalArticle> returnValue =
-				SkinnyServiceUtil.getSkinnyJournalArticles(companyId,
-					groupName, ddmStructureId, locale);
+	public static com.liferay.skinny.model.SkinnyJournalArticle[]
+			getSkinnyJournalArticles(
+				long companyId, String groupName, long ddmStructureId,
+				String locale)
+		throws RemoteException {
 
-			return returnValue.toArray(new com.liferay.skinny.model.SkinnyJournalArticle[returnValue.size()]);
+		try {
+			java.util.List<com.liferay.skinny.model.SkinnyJournalArticle>
+				returnValue = SkinnyServiceUtil.getSkinnyJournalArticles(
+					companyId, groupName, ddmStructureId, locale);
+
+			return returnValue.toArray(
+				new com.liferay.skinny.model.SkinnyJournalArticle
+					[returnValue.size()]);
 		}
 		catch (Exception e) {
 			_log.error(e, e);
@@ -86,12 +92,15 @@ public class SkinnyServiceSoap {
 		}
 	}
 
-	public static com.liferay.skinny.model.SkinnyJournalArticle getSkinnyJournalArticle(
-		long groupId, java.lang.String articleId, int status,
-		java.lang.String locale) throws RemoteException {
+	public static com.liferay.skinny.model.SkinnyJournalArticle
+			getSkinnyJournalArticle(
+				long groupId, String articleId, int status, String locale)
+		throws RemoteException {
+
 		try {
-			com.liferay.skinny.model.SkinnyJournalArticle returnValue = SkinnyServiceUtil.getSkinnyJournalArticle(groupId,
-					articleId, status, locale);
+			com.liferay.skinny.model.SkinnyJournalArticle returnValue =
+				SkinnyServiceUtil.getSkinnyJournalArticle(
+					groupId, articleId, status, locale);
 
 			return returnValue;
 		}
@@ -102,14 +111,20 @@ public class SkinnyServiceSoap {
 		}
 	}
 
-	public static com.liferay.skinny.model.SkinnyJournalArticleVersionMetadata[] getSkinnyJournalArticleVersions(
-		long groupId, java.lang.String articleId) throws RemoteException {
-		try {
-			java.util.List<com.liferay.skinny.model.SkinnyJournalArticleVersionMetadata> returnValue =
-				SkinnyServiceUtil.getSkinnyJournalArticleVersions(groupId,
-					articleId);
+	public static com.liferay.skinny.model.SkinnyJournalArticleVersionMetadata[]
+			getSkinnyJournalArticleVersions(long groupId, String articleId)
+		throws RemoteException {
 
-			return returnValue.toArray(new com.liferay.skinny.model.SkinnyJournalArticleVersionMetadata[returnValue.size()]);
+		try {
+			java.util.List
+				<com.liferay.skinny.model.SkinnyJournalArticleVersionMetadata>
+					returnValue =
+						SkinnyServiceUtil.getSkinnyJournalArticleVersions(
+							groupId, articleId);
+
+			return returnValue.toArray(
+				new com.liferay.skinny.model.SkinnyJournalArticleVersionMetadata
+					[returnValue.size()]);
 		}
 		catch (Exception e) {
 			_log.error(e, e);
@@ -118,12 +133,15 @@ public class SkinnyServiceSoap {
 		}
 	}
 
-	public static com.liferay.skinny.model.SkinnyJournalArticle getSkinnyJournalArticleByVersion(
-		long groupId, java.lang.String articleId, java.lang.String version,
-		java.lang.String locale) throws RemoteException {
+	public static com.liferay.skinny.model.SkinnyJournalArticle
+			getSkinnyJournalArticleByVersion(
+				long groupId, String articleId, String version, String locale)
+		throws RemoteException {
+
 		try {
-			com.liferay.skinny.model.SkinnyJournalArticle returnValue = SkinnyServiceUtil.getSkinnyJournalArticleByVersion(groupId,
-					articleId, version, locale);
+			com.liferay.skinny.model.SkinnyJournalArticle returnValue =
+				SkinnyServiceUtil.getSkinnyJournalArticleByVersion(
+					groupId, articleId, version, locale);
 
 			return returnValue;
 		}
@@ -135,4 +153,5 @@ public class SkinnyServiceSoap {
 	}
 
 	private static Log _log = LogFactoryUtil.getLog(SkinnyServiceSoap.class);
+
 }
