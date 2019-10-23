@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1571842536381
+Bnd-LastModified: 1571843495764
 Bundle-ManifestVersion: 2
 Bundle-Name: Skinny JSON WebService :: Service
 Bundle-SymbolicName: com.liferay.skinny.service
-Bundle-Version: 1.1.0.201910231455
+Bundle-Version: 1.1.0.201910231511
 Created-By: 1.8.0_152 (Oracle Corporation)
 Import-Package: com.liferay.counter.kernel.service;version="[2.0,3)",c
  om.liferay.dynamic.data.lists.model;version="[2.0,3)",com.liferay.dyn

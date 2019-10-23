@@ -44,8 +44,8 @@ import org.osgi.annotation.versioning.ProviderType;
 @JSONWebService
 @OSGiBeanProperties(
 	property = {
-		"json.web.service.context.name=skinny",
-		"json.web.service.context.path=Skinny"
+		"json.web.service.context.name=skinny-web",
+		"json.web.service.context.path=Skinny-web"
 	},
 	service = SkinnyService.class
 )
