@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1571842535048
+Bnd-LastModified: 1571843494549
 Bundle-ManifestVersion: 2
 Bundle-Name: Skinny JSON WebService :: Service-API
 Bundle-SymbolicName: com.liferay.skinny.api
-Bundle-Version: 1.1.0.201910231455
+Bundle-Version: 1.1.0.201910231511
 Created-By: 1.8.0_152 (Oracle Corporation)
 Export-Package: com.liferay.skinny.model;uses:="com.liferay.portal.ker
  nel.json";version="1.1.0",com.liferay.skinny.service;uses:="com.lifer
