@@ -23,24 +23,22 @@ import org.osgi.util.tracker.ServiceTracker;
 
 /**
  * Provides the remote service utility for Skinny. This utility wraps
- * {@link com.liferay.skinny.service.impl.SkinnyServiceImpl} and is the
- * primary access point for service operations in application layer code running
- * on a remote server. Methods of this service are expected to have security
- * checks based on the propagated JAAS credentials because this service can be
+ * <code>com.liferay.skinny.service.impl.SkinnyServiceImpl</code> and is an
+ * access point for service operations in application layer code running on a
+ * remote server. Methods of this service are expected to have security checks
+ * based on the propagated JAAS credentials because this service can be
  * accessed remotely.
  *
  * @author Brian Wing Shun Chan
  * @see SkinnyService
- * @see com.liferay.skinny.service.base.SkinnyServiceBaseImpl
- * @see com.liferay.skinny.service.impl.SkinnyServiceImpl
  * @generated
  */
-@ProviderType
 public class SkinnyServiceUtil {
-	/*
+
+	/**
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this class directly. Add custom service methods to {@link com.liferay.skinny.service.impl.SkinnyServiceImpl} and rerun ServiceBuilder to regenerate this class.
+	 * Never modify this class directly. Add custom service methods to <code>com.liferay.skinny.service.impl.SkinnyServiceImpl</code> and rerun ServiceBuilder to regenerate this class.
 	 */
 
 	/**

@@ -14,8 +14,6 @@
 
 package com.liferay.skinny.service;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.service.ServiceWrapper;
 
 /**
@@ -25,18 +23,18 @@ import com.liferay.portal.kernel.service.ServiceWrapper;
  * @see SkinnyService
  * @generated
  */
-@ProviderType
-public class SkinnyServiceWrapper implements SkinnyService,
-	ServiceWrapper<SkinnyService> {
+public class SkinnyServiceWrapper
+	implements ServiceWrapper<SkinnyService>, SkinnyService {
+
 	public SkinnyServiceWrapper(SkinnyService skinnyService) {
 		_skinnyService = skinnyService;
 	}
 
 	/**
-	* Returns the OSGi service identifier.
-	*
-	* @return the OSGi service identifier
-	*/
+	 * Returns the OSGi service identifier.
+	 *
+	 * @return the OSGi service identifier
+	 */
 	@Override
 	public String getOSGiServiceIdentifier() {
 		return _skinnyService.getOSGiServiceIdentifier();
@@ -89,4 +87,5 @@ public class SkinnyServiceWrapper implements SkinnyService,
 	}
 
 	private SkinnyService _skinnyService;
+
 }

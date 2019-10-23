@@ -16,9 +16,7 @@ package com.liferay.skinny.service.base;
 
 import com.liferay.dynamic.data.lists.service.persistence.DDLRecordSetPersistence;
 import com.liferay.dynamic.data.mapping.service.persistence.DDMStructurePersistence;
-
 import com.liferay.journal.service.persistence.JournalArticlePersistence;
-
 import com.liferay.portal.kernel.bean.BeanReference;
 import com.liferay.portal.kernel.dao.db.DB;
 import com.liferay.portal.kernel.dao.db.DBManagerUtil;
@@ -33,7 +31,6 @@ import com.liferay.portal.kernel.service.persistence.UserPersistence;
 import com.liferay.portal.kernel.util.InfrastructureUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.spring.extender.service.ServiceReference;
-
 import com.liferay.skinny.service.SkinnyService;
 
 import javax.sql.DataSource;
@@ -47,15 +44,15 @@ import javax.sql.DataSource;
  *
  * @author Brian Wing Shun Chan
  * @see com.liferay.skinny.service.impl.SkinnyServiceImpl
- * @see com.liferay.skinny.service.SkinnyServiceUtil
  * @generated
  */
-public abstract class SkinnyServiceBaseImpl extends BaseServiceImpl
-	implements SkinnyService, IdentifiableOSGiService {
-	/*
+public abstract class SkinnyServiceBaseImpl
+	extends BaseServiceImpl implements IdentifiableOSGiService, SkinnyService {
+
+	/**
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify or reference this class directly. Always use {@link com.liferay.skinny.service.SkinnyServiceUtil} to access the skinny remote service.
+	 * Never modify or reference this class directly. Use <code>SkinnyService</code> via injection or a <code>org.osgi.util.tracker.ServiceTracker</code> or use <code>com.liferay.skinny.service.SkinnyServiceUtil</code>.
 	 */
 
 	/**
@@ -81,7 +78,9 @@ public abstract class SkinnyServiceBaseImpl extends BaseServiceImpl
 	 *
 	 * @return the counter local service
 	 */
-	public com.liferay.counter.kernel.service.CounterLocalService getCounterLocalService() {
+	public com.liferay.counter.kernel.service.CounterLocalService
+		getCounterLocalService() {
+
 		return counterLocalService;
 	}
 
@@ -91,7 +90,9 @@ public abstract class SkinnyServiceBaseImpl extends BaseServiceImpl
 	 * @param counterLocalService the counter local service
 	 */
 	public void setCounterLocalService(
-		com.liferay.counter.kernel.service.CounterLocalService counterLocalService) {
+		com.liferay.counter.kernel.service.CounterLocalService
+			counterLocalService) {
+
 		this.counterLocalService = counterLocalService;
 	}
 
@@ -100,7 +101,9 @@ public abstract class SkinnyServiceBaseImpl extends BaseServiceImpl
 	 *
 	 * @return the ddl record set local service
 	 */
-	public com.liferay.dynamic.data.lists.service.DDLRecordSetLocalService getDDLRecordSetLocalService() {
+	public com.liferay.dynamic.data.lists.service.DDLRecordSetLocalService
+		getDDLRecordSetLocalService() {
+
 		return ddlRecordSetLocalService;
 	}
 
@@ -110,7 +113,9 @@ public abstract class SkinnyServiceBaseImpl extends BaseServiceImpl
 	 * @param ddlRecordSetLocalService the ddl record set local service
 	 */
 	public void setDDLRecordSetLocalService(
-		com.liferay.dynamic.data.lists.service.DDLRecordSetLocalService ddlRecordSetLocalService) {
+		com.liferay.dynamic.data.lists.service.DDLRecordSetLocalService
+			ddlRecordSetLocalService) {
+
 		this.ddlRecordSetLocalService = ddlRecordSetLocalService;
 	}
 
@@ -119,7 +124,9 @@ public abstract class SkinnyServiceBaseImpl extends BaseServiceImpl
 	 *
 	 * @return the ddl record set remote service
 	 */
-	public com.liferay.dynamic.data.lists.service.DDLRecordSetService getDDLRecordSetService() {
+	public com.liferay.dynamic.data.lists.service.DDLRecordSetService
+		getDDLRecordSetService() {
+
 		return ddlRecordSetService;
 	}
 
@@ -129,7 +136,9 @@ public abstract class SkinnyServiceBaseImpl extends BaseServiceImpl
 	 * @param ddlRecordSetService the ddl record set remote service
 	 */
 	public void setDDLRecordSetService(
-		com.liferay.dynamic.data.lists.service.DDLRecordSetService ddlRecordSetService) {
+		com.liferay.dynamic.data.lists.service.DDLRecordSetService
+			ddlRecordSetService) {
+
 		this.ddlRecordSetService = ddlRecordSetService;
 	}
 
@@ -149,6 +158,7 @@ public abstract class SkinnyServiceBaseImpl extends BaseServiceImpl
 	 */
 	public void setDDLRecordSetPersistence(
 		DDLRecordSetPersistence ddlRecordSetPersistence) {
+
 		this.ddlRecordSetPersistence = ddlRecordSetPersistence;
 	}
 
@@ -157,7 +167,9 @@ public abstract class SkinnyServiceBaseImpl extends BaseServiceImpl
 	 *
 	 * @return the ddm structure local service
 	 */
-	public com.liferay.dynamic.data.mapping.service.DDMStructureLocalService getDDMStructureLocalService() {
+	public com.liferay.dynamic.data.mapping.service.DDMStructureLocalService
+		getDDMStructureLocalService() {
+
 		return ddmStructureLocalService;
 	}
 
@@ -167,7 +179,9 @@ public abstract class SkinnyServiceBaseImpl extends BaseServiceImpl
 	 * @param ddmStructureLocalService the ddm structure local service
 	 */
 	public void setDDMStructureLocalService(
-		com.liferay.dynamic.data.mapping.service.DDMStructureLocalService ddmStructureLocalService) {
+		com.liferay.dynamic.data.mapping.service.DDMStructureLocalService
+			ddmStructureLocalService) {
+
 		this.ddmStructureLocalService = ddmStructureLocalService;
 	}
 
@@ -176,7 +190,9 @@ public abstract class SkinnyServiceBaseImpl extends BaseServiceImpl
 	 *
 	 * @return the ddm structure remote service
 	 */
-	public com.liferay.dynamic.data.mapping.service.DDMStructureService getDDMStructureService() {
+	public com.liferay.dynamic.data.mapping.service.DDMStructureService
+		getDDMStructureService() {
+
 		return ddmStructureService;
 	}
 
@@ -186,7 +202,9 @@ public abstract class SkinnyServiceBaseImpl extends BaseServiceImpl
 	 * @param ddmStructureService the ddm structure remote service
 	 */
 	public void setDDMStructureService(
-		com.liferay.dynamic.data.mapping.service.DDMStructureService ddmStructureService) {
+		com.liferay.dynamic.data.mapping.service.DDMStructureService
+			ddmStructureService) {
+
 		this.ddmStructureService = ddmStructureService;
 	}
 
@@ -206,6 +224,7 @@ public abstract class SkinnyServiceBaseImpl extends BaseServiceImpl
 	 */
 	public void setDDMStructurePersistence(
 		DDMStructurePersistence ddmStructurePersistence) {
+
 		this.ddmStructurePersistence = ddmStructurePersistence;
 	}
 
@@ -214,7 +233,9 @@ public abstract class SkinnyServiceBaseImpl extends BaseServiceImpl
 	 *
 	 * @return the journal article local service
 	 */
-	public com.liferay.journal.service.JournalArticleLocalService getJournalArticleLocalService() {
+	public com.liferay.journal.service.JournalArticleLocalService
+		getJournalArticleLocalService() {
+
 		return journalArticleLocalService;
 	}
 
@@ -224,7 +245,9 @@ public abstract class SkinnyServiceBaseImpl extends BaseServiceImpl
 	 * @param journalArticleLocalService the journal article local service
 	 */
 	public void setJournalArticleLocalService(
-		com.liferay.journal.service.JournalArticleLocalService journalArticleLocalService) {
+		com.liferay.journal.service.JournalArticleLocalService
+			journalArticleLocalService) {
+
 		this.journalArticleLocalService = journalArticleLocalService;
 	}
 
@@ -233,7 +256,9 @@ public abstract class SkinnyServiceBaseImpl extends BaseServiceImpl
 	 *
 	 * @return the journal article remote service
 	 */
-	public com.liferay.journal.service.JournalArticleService getJournalArticleService() {
+	public com.liferay.journal.service.JournalArticleService
+		getJournalArticleService() {
+
 		return journalArticleService;
 	}
 
@@ -243,7 +268,9 @@ public abstract class SkinnyServiceBaseImpl extends BaseServiceImpl
 	 * @param journalArticleService the journal article remote service
 	 */
 	public void setJournalArticleService(
-		com.liferay.journal.service.JournalArticleService journalArticleService) {
+		com.liferay.journal.service.JournalArticleService
+			journalArticleService) {
+
 		this.journalArticleService = journalArticleService;
 	}
 
@@ -263,6 +290,7 @@ public abstract class SkinnyServiceBaseImpl extends BaseServiceImpl
 	 */
 	public void setJournalArticlePersistence(
 		JournalArticlePersistence journalArticlePersistence) {
+
 		this.journalArticlePersistence = journalArticlePersistence;
 	}
 
@@ -271,7 +299,9 @@ public abstract class SkinnyServiceBaseImpl extends BaseServiceImpl
 	 *
 	 * @return the class name local service
 	 */
-	public com.liferay.portal.kernel.service.ClassNameLocalService getClassNameLocalService() {
+	public com.liferay.portal.kernel.service.ClassNameLocalService
+		getClassNameLocalService() {
+
 		return classNameLocalService;
 	}
 
@@ -281,7 +311,9 @@ public abstract class SkinnyServiceBaseImpl extends BaseServiceImpl
 	 * @param classNameLocalService the class name local service
 	 */
 	public void setClassNameLocalService(
-		com.liferay.portal.kernel.service.ClassNameLocalService classNameLocalService) {
+		com.liferay.portal.kernel.service.ClassNameLocalService
+			classNameLocalService) {
+
 		this.classNameLocalService = classNameLocalService;
 	}
 
@@ -290,7 +322,9 @@ public abstract class SkinnyServiceBaseImpl extends BaseServiceImpl
 	 *
 	 * @return the class name remote service
 	 */
-	public com.liferay.portal.kernel.service.ClassNameService getClassNameService() {
+	public com.liferay.portal.kernel.service.ClassNameService
+		getClassNameService() {
+
 		return classNameService;
 	}
 
@@ -301,6 +335,7 @@ public abstract class SkinnyServiceBaseImpl extends BaseServiceImpl
 	 */
 	public void setClassNameService(
 		com.liferay.portal.kernel.service.ClassNameService classNameService) {
+
 		this.classNameService = classNameService;
 	}
 
@@ -320,6 +355,7 @@ public abstract class SkinnyServiceBaseImpl extends BaseServiceImpl
 	 */
 	public void setClassNamePersistence(
 		ClassNamePersistence classNamePersistence) {
+
 		this.classNamePersistence = classNamePersistence;
 	}
 
@@ -328,7 +364,9 @@ public abstract class SkinnyServiceBaseImpl extends BaseServiceImpl
 	 *
 	 * @return the group local service
 	 */
-	public com.liferay.portal.kernel.service.GroupLocalService getGroupLocalService() {
+	public com.liferay.portal.kernel.service.GroupLocalService
+		getGroupLocalService() {
+
 		return groupLocalService;
 	}
 
@@ -339,6 +377,7 @@ public abstract class SkinnyServiceBaseImpl extends BaseServiceImpl
 	 */
 	public void setGroupLocalService(
 		com.liferay.portal.kernel.service.GroupLocalService groupLocalService) {
+
 		this.groupLocalService = groupLocalService;
 	}
 
@@ -358,6 +397,7 @@ public abstract class SkinnyServiceBaseImpl extends BaseServiceImpl
 	 */
 	public void setGroupService(
 		com.liferay.portal.kernel.service.GroupService groupService) {
+
 		this.groupService = groupService;
 	}
 
@@ -384,7 +424,9 @@ public abstract class SkinnyServiceBaseImpl extends BaseServiceImpl
 	 *
 	 * @return the resource local service
 	 */
-	public com.liferay.portal.kernel.service.ResourceLocalService getResourceLocalService() {
+	public com.liferay.portal.kernel.service.ResourceLocalService
+		getResourceLocalService() {
+
 		return resourceLocalService;
 	}
 
@@ -394,7 +436,9 @@ public abstract class SkinnyServiceBaseImpl extends BaseServiceImpl
 	 * @param resourceLocalService the resource local service
 	 */
 	public void setResourceLocalService(
-		com.liferay.portal.kernel.service.ResourceLocalService resourceLocalService) {
+		com.liferay.portal.kernel.service.ResourceLocalService
+			resourceLocalService) {
+
 		this.resourceLocalService = resourceLocalService;
 	}
 
@@ -403,7 +447,9 @@ public abstract class SkinnyServiceBaseImpl extends BaseServiceImpl
 	 *
 	 * @return the user local service
 	 */
-	public com.liferay.portal.kernel.service.UserLocalService getUserLocalService() {
+	public com.liferay.portal.kernel.service.UserLocalService
+		getUserLocalService() {
+
 		return userLocalService;
 	}
 
@@ -414,6 +460,7 @@ public abstract class SkinnyServiceBaseImpl extends BaseServiceImpl
 	 */
 	public void setUserLocalService(
 		com.liferay.portal.kernel.service.UserLocalService userLocalService) {
+
 		this.userLocalService = userLocalService;
 	}
 
@@ -433,6 +480,7 @@ public abstract class SkinnyServiceBaseImpl extends BaseServiceImpl
 	 */
 	public void setUserService(
 		com.liferay.portal.kernel.service.UserService userService) {
+
 		this.userService = userService;
 	}
 
@@ -484,8 +532,8 @@ public abstract class SkinnyServiceBaseImpl extends BaseServiceImpl
 			sql = db.buildSQL(sql);
 			sql = PortalUtil.transformSQL(sql);
 
-			SqlUpdate sqlUpdate = SqlUpdateFactoryUtil.getSqlUpdate(dataSource,
-					sql);
+			SqlUpdate sqlUpdate = SqlUpdateFactoryUtil.getSqlUpdate(
+				dataSource, sql);
 
 			sqlUpdate.update();
 		}
@@ -496,44 +544,105 @@ public abstract class SkinnyServiceBaseImpl extends BaseServiceImpl
 
 	@BeanReference(type = SkinnyService.class)
 	protected SkinnyService skinnyService;
-	@ServiceReference(type = com.liferay.counter.kernel.service.CounterLocalService.class)
-	protected com.liferay.counter.kernel.service.CounterLocalService counterLocalService;
-	@ServiceReference(type = com.liferay.dynamic.data.lists.service.DDLRecordSetLocalService.class)
-	protected com.liferay.dynamic.data.lists.service.DDLRecordSetLocalService ddlRecordSetLocalService;
-	@ServiceReference(type = com.liferay.dynamic.data.lists.service.DDLRecordSetService.class)
-	protected com.liferay.dynamic.data.lists.service.DDLRecordSetService ddlRecordSetService;
+
+	@ServiceReference(
+		type = com.liferay.counter.kernel.service.CounterLocalService.class
+	)
+	protected com.liferay.counter.kernel.service.CounterLocalService
+		counterLocalService;
+
+	@ServiceReference(
+		type = com.liferay.dynamic.data.lists.service.DDLRecordSetLocalService.class
+	)
+	protected com.liferay.dynamic.data.lists.service.DDLRecordSetLocalService
+		ddlRecordSetLocalService;
+
+	@ServiceReference(
+		type = com.liferay.dynamic.data.lists.service.DDLRecordSetService.class
+	)
+	protected com.liferay.dynamic.data.lists.service.DDLRecordSetService
+		ddlRecordSetService;
+
 	@ServiceReference(type = DDLRecordSetPersistence.class)
 	protected DDLRecordSetPersistence ddlRecordSetPersistence;
-	@ServiceReference(type = com.liferay.dynamic.data.mapping.service.DDMStructureLocalService.class)
-	protected com.liferay.dynamic.data.mapping.service.DDMStructureLocalService ddmStructureLocalService;
-	@ServiceReference(type = com.liferay.dynamic.data.mapping.service.DDMStructureService.class)
-	protected com.liferay.dynamic.data.mapping.service.DDMStructureService ddmStructureService;
+
+	@ServiceReference(
+		type = com.liferay.dynamic.data.mapping.service.DDMStructureLocalService.class
+	)
+	protected com.liferay.dynamic.data.mapping.service.DDMStructureLocalService
+		ddmStructureLocalService;
+
+	@ServiceReference(
+		type = com.liferay.dynamic.data.mapping.service.DDMStructureService.class
+	)
+	protected com.liferay.dynamic.data.mapping.service.DDMStructureService
+		ddmStructureService;
+
 	@ServiceReference(type = DDMStructurePersistence.class)
 	protected DDMStructurePersistence ddmStructurePersistence;
-	@ServiceReference(type = com.liferay.journal.service.JournalArticleLocalService.class)
-	protected com.liferay.journal.service.JournalArticleLocalService journalArticleLocalService;
-	@ServiceReference(type = com.liferay.journal.service.JournalArticleService.class)
-	protected com.liferay.journal.service.JournalArticleService journalArticleService;
+
+	@ServiceReference(
+		type = com.liferay.journal.service.JournalArticleLocalService.class
+	)
+	protected com.liferay.journal.service.JournalArticleLocalService
+		journalArticleLocalService;
+
+	@ServiceReference(
+		type = com.liferay.journal.service.JournalArticleService.class
+	)
+	protected com.liferay.journal.service.JournalArticleService
+		journalArticleService;
+
 	@ServiceReference(type = JournalArticlePersistence.class)
 	protected JournalArticlePersistence journalArticlePersistence;
-	@ServiceReference(type = com.liferay.portal.kernel.service.ClassNameLocalService.class)
-	protected com.liferay.portal.kernel.service.ClassNameLocalService classNameLocalService;
-	@ServiceReference(type = com.liferay.portal.kernel.service.ClassNameService.class)
-	protected com.liferay.portal.kernel.service.ClassNameService classNameService;
+
+	@ServiceReference(
+		type = com.liferay.portal.kernel.service.ClassNameLocalService.class
+	)
+	protected com.liferay.portal.kernel.service.ClassNameLocalService
+		classNameLocalService;
+
+	@ServiceReference(
+		type = com.liferay.portal.kernel.service.ClassNameService.class
+	)
+	protected com.liferay.portal.kernel.service.ClassNameService
+		classNameService;
+
 	@ServiceReference(type = ClassNamePersistence.class)
 	protected ClassNamePersistence classNamePersistence;
-	@ServiceReference(type = com.liferay.portal.kernel.service.GroupLocalService.class)
-	protected com.liferay.portal.kernel.service.GroupLocalService groupLocalService;
-	@ServiceReference(type = com.liferay.portal.kernel.service.GroupService.class)
+
+	@ServiceReference(
+		type = com.liferay.portal.kernel.service.GroupLocalService.class
+	)
+	protected com.liferay.portal.kernel.service.GroupLocalService
+		groupLocalService;
+
+	@ServiceReference(
+		type = com.liferay.portal.kernel.service.GroupService.class
+	)
 	protected com.liferay.portal.kernel.service.GroupService groupService;
+
 	@ServiceReference(type = GroupPersistence.class)
 	protected GroupPersistence groupPersistence;
-	@ServiceReference(type = com.liferay.portal.kernel.service.ResourceLocalService.class)
-	protected com.liferay.portal.kernel.service.ResourceLocalService resourceLocalService;
-	@ServiceReference(type = com.liferay.portal.kernel.service.UserLocalService.class)
-	protected com.liferay.portal.kernel.service.UserLocalService userLocalService;
-	@ServiceReference(type = com.liferay.portal.kernel.service.UserService.class)
+
+	@ServiceReference(
+		type = com.liferay.portal.kernel.service.ResourceLocalService.class
+	)
+	protected com.liferay.portal.kernel.service.ResourceLocalService
+		resourceLocalService;
+
+	@ServiceReference(
+		type = com.liferay.portal.kernel.service.UserLocalService.class
+	)
+	protected com.liferay.portal.kernel.service.UserLocalService
+		userLocalService;
+
+	@ServiceReference(
+		type = com.liferay.portal.kernel.service.UserService.class
+	)
 	protected com.liferay.portal.kernel.service.UserService userService;
+
 	@ServiceReference(type = UserPersistence.class)
 	protected UserPersistence userPersistence;
+
 }

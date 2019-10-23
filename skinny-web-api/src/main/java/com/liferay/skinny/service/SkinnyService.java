@@ -14,8 +14,6 @@
 
 package com.liferay.skinny.service;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.jsonwebservice.JSONWebService;
@@ -25,12 +23,13 @@ import com.liferay.portal.kernel.spring.osgi.OSGiBeanProperties;
 import com.liferay.portal.kernel.transaction.Isolation;
 import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
-
 import com.liferay.skinny.model.SkinnyDDLRecord;
 import com.liferay.skinny.model.SkinnyJournalArticle;
 import com.liferay.skinny.model.SkinnyJournalArticleVersionMetadata;
 
 import java.util.List;
+
+import org.osgi.annotation.versioning.ProviderType;
 
 /**
  * Provides the remote service interface for Skinny. Methods of this
@@ -39,8 +38,6 @@ import java.util.List;
  *
  * @author Brian Wing Shun Chan
  * @see SkinnyServiceUtil
- * @see com.liferay.skinny.service.base.SkinnyServiceBaseImpl
- * @see com.liferay.skinny.service.impl.SkinnyServiceImpl
  * @generated
  */
 @AccessControlled
@@ -48,13 +45,16 @@ import java.util.List;
 @OSGiBeanProperties(property =  {
 	"json.web.service.context.name=skinny-web", "json.web.service.context.path=Skinny"}, service = SkinnyService.class)
 @ProviderType
-@Transactional(isolation = Isolation.PORTAL, rollbackFor =  {
-	PortalException.class, SystemException.class})
+@Transactional(
+	isolation = Isolation.PORTAL,
+	rollbackFor = {PortalException.class, SystemException.class}
+)
 public interface SkinnyService extends BaseService {
-	/*
+
+	/**
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify or reference this interface directly. Always use {@link SkinnyServiceUtil} to access the skinny remote service. Add custom service methods to {@link com.liferay.skinny.service.impl.SkinnyServiceImpl} and rerun ServiceBuilder to automatically copy the method declarations to this interface.
+	 * Never modify or reference this interface directly. Always use {@link SkinnyServiceUtil} to access the skinny remote service. Add custom service methods to <code>com.liferay.skinny.service.impl.SkinnyServiceImpl</code> and rerun ServiceBuilder to automatically copy the method declarations to this interface.
 	 */
 
 	/**

@@ -14,23 +14,21 @@
 
 package com.liferay.skinny.service.http;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.security.auth.HttpPrincipal;
 import com.liferay.portal.kernel.service.http.TunnelUtil;
 import com.liferay.portal.kernel.util.MethodHandler;
 import com.liferay.portal.kernel.util.MethodKey;
-
 import com.liferay.skinny.service.SkinnyServiceUtil;
 
 /**
  * Provides the HTTP utility for the
- * {@link SkinnyServiceUtil} service utility. The
+ * <code>SkinnyServiceUtil</code> service
+ * utility. The
  * static methods of this class calls the same methods of the service utility.
  * However, the signatures are different because it requires an additional
- * {@link HttpPrincipal} parameter.
+ * <code>HttpPrincipal</code> parameter.
  *
  * <p>
  * The benefits of using the HTTP utility is that it is fast and allows for
@@ -49,21 +47,19 @@ import com.liferay.skinny.service.SkinnyServiceUtil;
  *
  * @author Brian Wing Shun Chan
  * @see SkinnyServiceSoap
- * @see HttpPrincipal
- * @see SkinnyServiceUtil
  * @generated
  */
-@ProviderType
 public class SkinnyServiceHttp {
 	public static java.util.List<com.liferay.skinny.model.SkinnyDDLRecord> getSkinnyDDLRecords(
 		HttpPrincipal httpPrincipal, long ddlRecordSetId)
 		throws Exception {
 		try {
-			MethodKey methodKey = new MethodKey(SkinnyServiceUtil.class,
-					"getSkinnyDDLRecords", _getSkinnyDDLRecordsParameterTypes0);
+			MethodKey methodKey = new MethodKey(
+				SkinnyServiceUtil.class, "getSkinnyDDLRecords",
+				_getSkinnyDDLRecordsParameterTypes0);
 
-			MethodHandler methodHandler = new MethodHandler(methodKey,
-					ddlRecordSetId);
+			MethodHandler methodHandler = new MethodHandler(
+				methodKey, ddlRecordSetId);
 
 			Object returnObj = null;
 
@@ -75,10 +71,12 @@ public class SkinnyServiceHttp {
 					throw (Exception)e;
 				}
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					e);
 			}
 
-			return (java.util.List<com.liferay.skinny.model.SkinnyDDLRecord>)returnObj;
+			return (java.util.List<com.liferay.skinny.model.SkinnyDDLRecord>)
+				returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException se) {
 			_log.error(se, se);
@@ -91,12 +89,12 @@ public class SkinnyServiceHttp {
 		HttpPrincipal httpPrincipal, long companyId, String groupName,
 		long ddmStructureId, String locale) throws Exception {
 		try {
-			MethodKey methodKey = new MethodKey(SkinnyServiceUtil.class,
-					"getSkinnyJournalArticles",
-					_getSkinnyJournalArticlesParameterTypes1);
+			MethodKey methodKey = new MethodKey(
+				SkinnyServiceUtil.class, "getSkinnyJournalArticles",
+				_getSkinnyJournalArticlesParameterTypes1);
 
-			MethodHandler methodHandler = new MethodHandler(methodKey,
-					companyId, groupName, ddmStructureId, locale);
+			MethodHandler methodHandler = new MethodHandler(
+				methodKey, companyId, groupName, ddmStructureId, locale);
 
 			Object returnObj = null;
 
@@ -108,10 +106,12 @@ public class SkinnyServiceHttp {
 					throw (Exception)e;
 				}
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					e);
 			}
 
-			return (java.util.List<com.liferay.skinny.model.SkinnyJournalArticle>)returnObj;
+			return (java.util.List
+				<com.liferay.skinny.model.SkinnyJournalArticle>)returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException se) {
 			_log.error(se, se);
@@ -124,12 +124,12 @@ public class SkinnyServiceHttp {
 		HttpPrincipal httpPrincipal, long groupId, String articleId,
 		int status, String locale) throws Exception {
 		try {
-			MethodKey methodKey = new MethodKey(SkinnyServiceUtil.class,
-					"getSkinnyJournalArticle",
-					_getSkinnyJournalArticleParameterTypes2);
+			MethodKey methodKey = new MethodKey(
+				SkinnyServiceUtil.class, "getSkinnyJournalArticle",
+				_getSkinnyJournalArticleParameterTypes2);
 
-			MethodHandler methodHandler = new MethodHandler(methodKey, groupId,
-					articleId, status, locale);
+			MethodHandler methodHandler = new MethodHandler(
+				methodKey, groupId, articleId, status, locale);
 
 			Object returnObj = null;
 
@@ -141,7 +141,8 @@ public class SkinnyServiceHttp {
 					throw (Exception)e;
 				}
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					e);
 			}
 
 			return (com.liferay.skinny.model.SkinnyJournalArticle)returnObj;
@@ -157,12 +158,12 @@ public class SkinnyServiceHttp {
 		HttpPrincipal httpPrincipal, long groupId, String articleId)
 		throws Exception {
 		try {
-			MethodKey methodKey = new MethodKey(SkinnyServiceUtil.class,
-					"getSkinnyJournalArticleVersions",
-					_getSkinnyJournalArticleVersionsParameterTypes3);
+			MethodKey methodKey = new MethodKey(
+				SkinnyServiceUtil.class, "getSkinnyJournalArticleVersions",
+				_getSkinnyJournalArticleVersionsParameterTypes3);
 
-			MethodHandler methodHandler = new MethodHandler(methodKey, groupId,
-					articleId);
+			MethodHandler methodHandler = new MethodHandler(
+				methodKey, groupId, articleId);
 
 			Object returnObj = null;
 
@@ -174,10 +175,13 @@ public class SkinnyServiceHttp {
 					throw (Exception)e;
 				}
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					e);
 			}
 
-			return (java.util.List<com.liferay.skinny.model.SkinnyJournalArticleVersionMetadata>)returnObj;
+			return (java.util.List
+				<com.liferay.skinny.model.SkinnyJournalArticleVersionMetadata>)
+					returnObj;
 		}
 		catch (com.liferay.portal.kernel.exception.SystemException se) {
 			_log.error(se, se);
@@ -190,12 +194,12 @@ public class SkinnyServiceHttp {
 		HttpPrincipal httpPrincipal, long groupId, String articleId,
 		String version, String locale) throws Exception {
 		try {
-			MethodKey methodKey = new MethodKey(SkinnyServiceUtil.class,
-					"getSkinnyJournalArticleByVersion",
-					_getSkinnyJournalArticleByVersionParameterTypes4);
+			MethodKey methodKey = new MethodKey(
+				SkinnyServiceUtil.class, "getSkinnyJournalArticleByVersion",
+				_getSkinnyJournalArticleByVersionParameterTypes4);
 
-			MethodHandler methodHandler = new MethodHandler(methodKey, groupId,
-					articleId, version, locale);
+			MethodHandler methodHandler = new MethodHandler(
+				methodKey, groupId, articleId, version, locale);
 
 			Object returnObj = null;
 
@@ -207,7 +211,8 @@ public class SkinnyServiceHttp {
 					throw (Exception)e;
 				}
 
-				throw new com.liferay.portal.kernel.exception.SystemException(e);
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					e);
 			}
 
 			return (com.liferay.skinny.model.SkinnyJournalArticle)returnObj;
