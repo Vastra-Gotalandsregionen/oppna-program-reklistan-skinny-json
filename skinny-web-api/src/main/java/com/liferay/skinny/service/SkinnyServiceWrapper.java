@@ -41,52 +41,39 @@ public class SkinnyServiceWrapper
 	}
 
 	@Override
-	public java.util.List<com.liferay.skinny.model.SkinnyDDLRecord>
-			getSkinnyDDLRecords(long ddlRecordSetId)
-		throws Exception {
-
+	public java.util.List<com.liferay.skinny.model.SkinnyDDLRecord> getSkinnyDDLRecords(
+		long ddlRecordSetId) throws Exception {
 		return _skinnyService.getSkinnyDDLRecords(ddlRecordSetId);
 	}
 
 	@Override
-	public com.liferay.skinny.model.SkinnyJournalArticle
-			getSkinnyJournalArticle(
-				long groupId, String articleId, int status, String locale)
+	public com.liferay.skinny.model.SkinnyJournalArticle getSkinnyJournalArticle(
+		long groupId, String articleId, int status, String locale)
 		throws Exception {
-
-		return _skinnyService.getSkinnyJournalArticle(
-			groupId, articleId, status, locale);
+		return _skinnyService.getSkinnyJournalArticle(groupId, articleId,
+			status, locale);
 	}
 
 	@Override
-	public com.liferay.skinny.model.SkinnyJournalArticle
-			getSkinnyJournalArticleByVersion(
-				long groupId, String articleId, String version, String locale)
+	public com.liferay.skinny.model.SkinnyJournalArticle getSkinnyJournalArticleByVersion(
+		long groupId, String articleId, String version, String locale)
 		throws Exception {
-
-		return _skinnyService.getSkinnyJournalArticleByVersion(
-			groupId, articleId, version, locale);
+		return _skinnyService.getSkinnyJournalArticleByVersion(groupId,
+			articleId, version, locale);
 	}
 
 	@Override
-	public java.util.List<com.liferay.skinny.model.SkinnyJournalArticle>
-			getSkinnyJournalArticles(
-				long companyId, String groupName, long ddmStructureId,
-				String locale)
+	public java.util.List<com.liferay.skinny.model.SkinnyJournalArticle> getSkinnyJournalArticles(
+		long companyId, String groupName, long ddmStructureId, String locale)
 		throws Exception {
-
-		return _skinnyService.getSkinnyJournalArticles(
-			companyId, groupName, ddmStructureId, locale);
+		return _skinnyService.getSkinnyJournalArticles(companyId, groupName,
+			ddmStructureId, locale);
 	}
 
 	@Override
-	public java.util.List
-		<com.liferay.skinny.model.SkinnyJournalArticleVersionMetadata>
-				getSkinnyJournalArticleVersions(long groupId, String articleId)
-			throws Exception {
-
-		return _skinnyService.getSkinnyJournalArticleVersions(
-			groupId, articleId);
+	public java.util.List<com.liferay.skinny.model.SkinnyJournalArticleVersionMetadata> getSkinnyJournalArticleVersions(
+		long groupId, String articleId) throws Exception {
+		return _skinnyService.getSkinnyJournalArticleVersions(groupId, articleId);
 	}
 
 	@Override

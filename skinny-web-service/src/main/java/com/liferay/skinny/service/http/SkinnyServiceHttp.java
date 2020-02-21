@@ -50,12 +50,9 @@ import com.liferay.skinny.service.SkinnyServiceUtil;
  * @generated
  */
 public class SkinnyServiceHttp {
-
-	public static java.util.List<com.liferay.skinny.model.SkinnyDDLRecord>
-			getSkinnyDDLRecords(
-				HttpPrincipal httpPrincipal, long ddlRecordSetId)
+	public static java.util.List<com.liferay.skinny.model.SkinnyDDLRecord> getSkinnyDDLRecords(
+		HttpPrincipal httpPrincipal, long ddlRecordSetId)
 		throws Exception {
-
 		try {
 			MethodKey methodKey = new MethodKey(
 				SkinnyServiceUtil.class, "getSkinnyDDLRecords",
@@ -88,12 +85,9 @@ public class SkinnyServiceHttp {
 		}
 	}
 
-	public static java.util.List<com.liferay.skinny.model.SkinnyJournalArticle>
-			getSkinnyJournalArticles(
-				HttpPrincipal httpPrincipal, long companyId, String groupName,
-				long ddmStructureId, String locale)
-		throws Exception {
-
+	public static java.util.List<com.liferay.skinny.model.SkinnyJournalArticle> getSkinnyJournalArticles(
+		HttpPrincipal httpPrincipal, long companyId, String groupName,
+		long ddmStructureId, String locale) throws Exception {
 		try {
 			MethodKey methodKey = new MethodKey(
 				SkinnyServiceUtil.class, "getSkinnyJournalArticles",
@@ -126,12 +120,9 @@ public class SkinnyServiceHttp {
 		}
 	}
 
-	public static com.liferay.skinny.model.SkinnyJournalArticle
-			getSkinnyJournalArticle(
-				HttpPrincipal httpPrincipal, long groupId, String articleId,
-				int status, String locale)
-		throws Exception {
-
+	public static com.liferay.skinny.model.SkinnyJournalArticle getSkinnyJournalArticle(
+		HttpPrincipal httpPrincipal, long groupId, String articleId,
+		int status, String locale) throws Exception {
 		try {
 			MethodKey methodKey = new MethodKey(
 				SkinnyServiceUtil.class, "getSkinnyJournalArticle",
@@ -163,12 +154,9 @@ public class SkinnyServiceHttp {
 		}
 	}
 
-	public static java.util.List
-		<com.liferay.skinny.model.SkinnyJournalArticleVersionMetadata>
-				getSkinnyJournalArticleVersions(
-					HttpPrincipal httpPrincipal, long groupId, String articleId)
-			throws Exception {
-
+	public static java.util.List<com.liferay.skinny.model.SkinnyJournalArticleVersionMetadata> getSkinnyJournalArticleVersions(
+		HttpPrincipal httpPrincipal, long groupId, String articleId)
+		throws Exception {
 		try {
 			MethodKey methodKey = new MethodKey(
 				SkinnyServiceUtil.class, "getSkinnyJournalArticleVersions",
@@ -202,12 +190,9 @@ public class SkinnyServiceHttp {
 		}
 	}
 
-	public static com.liferay.skinny.model.SkinnyJournalArticle
-			getSkinnyJournalArticleByVersion(
-				HttpPrincipal httpPrincipal, long groupId, String articleId,
-				String version, String locale)
-		throws Exception {
-
+	public static com.liferay.skinny.model.SkinnyJournalArticle getSkinnyJournalArticleByVersion(
+		HttpPrincipal httpPrincipal, long groupId, String articleId,
+		String version, String locale) throws Exception {
 		try {
 			MethodKey methodKey = new MethodKey(
 				SkinnyServiceUtil.class, "getSkinnyJournalArticleByVersion",
@@ -240,20 +225,17 @@ public class SkinnyServiceHttp {
 	}
 
 	private static Log _log = LogFactoryUtil.getLog(SkinnyServiceHttp.class);
-
-	private static final Class<?>[] _getSkinnyDDLRecordsParameterTypes0 =
-		new Class[] {long.class};
-	private static final Class<?>[] _getSkinnyJournalArticlesParameterTypes1 =
-		new Class[] {long.class, String.class, long.class, String.class};
-	private static final Class<?>[] _getSkinnyJournalArticleParameterTypes2 =
-		new Class[] {long.class, String.class, int.class, String.class};
-	private static final Class<?>[]
-		_getSkinnyJournalArticleVersionsParameterTypes3 = new Class[] {
-			long.class, String.class
+	private static final Class<?>[] _getSkinnyDDLRecordsParameterTypes0 = new Class[] {
+			long.class
 		};
-	private static final Class<?>[]
-		_getSkinnyJournalArticleByVersionParameterTypes4 = new Class[] {
-			long.class, String.class, String.class, String.class
+	private static final Class<?>[] _getSkinnyJournalArticlesParameterTypes1 = new Class[] {
+			long.class, String.class, long.class, String.class
 		};
-
+	private static final Class<?>[] _getSkinnyJournalArticleParameterTypes2 = new Class[] {
+			long.class, String.class, int.class, String.class
+		};
+	private static final Class<?>[] _getSkinnyJournalArticleVersionsParameterTypes3 =
+		new Class[] { long.class, String.class };
+	private static final Class<?>[] _getSkinnyJournalArticleByVersionParameterTypes4 =
+		new Class[] { long.class, String.class, String.class, String.class };
 }

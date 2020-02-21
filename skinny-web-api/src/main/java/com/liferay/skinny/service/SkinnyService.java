@@ -42,13 +42,8 @@ import org.osgi.annotation.versioning.ProviderType;
  */
 @AccessControlled
 @JSONWebService
-@OSGiBeanProperties(
-	property = {
-		"json.web.service.context.name=skinny-web",
-		"json.web.service.context.path=Skinny-web"
-	},
-	service = SkinnyService.class
-)
+@OSGiBeanProperties(property =  {
+	"json.web.service.context.name=skinny-web", "json.web.service.context.path=Skinny"}, service = SkinnyService.class)
 @ProviderType
 @Transactional(
 	isolation = Isolation.PORTAL,
@@ -63,10 +58,10 @@ public interface SkinnyService extends BaseService {
 	 */
 
 	/**
-	 * Returns the OSGi service identifier.
-	 *
-	 * @return the OSGi service identifier
-	 */
+	* Returns the OSGi service identifier.
+	*
+	* @return the OSGi service identifier
+	*/
 	public String getOSGiServiceIdentifier();
 
 	@AccessControlled(guestAccessEnabled = true)
@@ -76,27 +71,23 @@ public interface SkinnyService extends BaseService {
 
 	@AccessControlled(guestAccessEnabled = true)
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public SkinnyJournalArticle getSkinnyJournalArticle(
-			long groupId, String articleId, int status, String locale)
+	public SkinnyJournalArticle getSkinnyJournalArticle(long groupId,
+		String articleId, int status, String locale) throws Exception;
+
+	@AccessControlled(guestAccessEnabled = true)
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public SkinnyJournalArticle getSkinnyJournalArticleByVersion(long groupId,
+		String articleId, String version, String locale)
 		throws Exception;
 
 	@AccessControlled(guestAccessEnabled = true)
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public SkinnyJournalArticle getSkinnyJournalArticleByVersion(
-			long groupId, String articleId, String version, String locale)
+	public List<SkinnyJournalArticle> getSkinnyJournalArticles(long companyId,
+		String groupName, long ddmStructureId, String locale)
 		throws Exception;
 
 	@AccessControlled(guestAccessEnabled = true)
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public List<SkinnyJournalArticle> getSkinnyJournalArticles(
-			long companyId, String groupName, long ddmStructureId,
-			String locale)
-		throws Exception;
-
-	@AccessControlled(guestAccessEnabled = true)
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public List<SkinnyJournalArticleVersionMetadata>
-			getSkinnyJournalArticleVersions(long groupId, String articleId)
-		throws Exception;
-
+	public List<SkinnyJournalArticleVersionMetadata> getSkinnyJournalArticleVersions(
+		long groupId, String articleId) throws Exception;
 }

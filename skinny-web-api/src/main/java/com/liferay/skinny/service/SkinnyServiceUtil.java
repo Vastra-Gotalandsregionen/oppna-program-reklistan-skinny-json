@@ -14,8 +14,11 @@
 
 package com.liferay.skinny.service;
 
+import aQute.bnd.annotation.ProviderType;
+
 import org.osgi.framework.Bundle;
 import org.osgi.framework.FrameworkUtil;
+
 import org.osgi.util.tracker.ServiceTracker;
 
 /**
@@ -39,54 +42,44 @@ public class SkinnyServiceUtil {
 	 */
 
 	/**
-	 * Returns the OSGi service identifier.
-	 *
-	 * @return the OSGi service identifier
-	 */
+	* Returns the OSGi service identifier.
+	*
+	* @return the OSGi service identifier
+	*/
 	public static String getOSGiServiceIdentifier() {
 		return getService().getOSGiServiceIdentifier();
 	}
 
-	public static java.util.List<com.liferay.skinny.model.SkinnyDDLRecord>
-			getSkinnyDDLRecords(long ddlRecordSetId)
-		throws Exception {
-
+	public static java.util.List<com.liferay.skinny.model.SkinnyDDLRecord> getSkinnyDDLRecords(
+		long ddlRecordSetId) throws Exception {
 		return getService().getSkinnyDDLRecords(ddlRecordSetId);
 	}
 
-	public static com.liferay.skinny.model.SkinnyJournalArticle
-			getSkinnyJournalArticle(
-				long groupId, String articleId, int status, String locale)
+	public static com.liferay.skinny.model.SkinnyJournalArticle getSkinnyJournalArticle(
+		long groupId, String articleId, int status, String locale)
 		throws Exception {
-
-		return getService().getSkinnyJournalArticle(
-			groupId, articleId, status, locale);
+		return getService()
+				   .getSkinnyJournalArticle(groupId, articleId, status, locale);
 	}
 
-	public static com.liferay.skinny.model.SkinnyJournalArticle
-			getSkinnyJournalArticleByVersion(
-				long groupId, String articleId, String version, String locale)
+	public static com.liferay.skinny.model.SkinnyJournalArticle getSkinnyJournalArticleByVersion(
+		long groupId, String articleId, String version, String locale)
 		throws Exception {
-
-		return getService().getSkinnyJournalArticleByVersion(
-			groupId, articleId, version, locale);
+		return getService()
+				   .getSkinnyJournalArticleByVersion(groupId, articleId,
+			version, locale);
 	}
 
-	public static java.util.List<com.liferay.skinny.model.SkinnyJournalArticle>
-			getSkinnyJournalArticles(
-				long companyId, String groupName, long ddmStructureId,
-				String locale)
+	public static java.util.List<com.liferay.skinny.model.SkinnyJournalArticle> getSkinnyJournalArticles(
+		long companyId, String groupName, long ddmStructureId, String locale)
 		throws Exception {
-
-		return getService().getSkinnyJournalArticles(
-			companyId, groupName, ddmStructureId, locale);
+		return getService()
+				   .getSkinnyJournalArticles(companyId, groupName,
+			ddmStructureId, locale);
 	}
 
-	public static java.util.List
-		<com.liferay.skinny.model.SkinnyJournalArticleVersionMetadata>
-				getSkinnyJournalArticleVersions(long groupId, String articleId)
-			throws Exception {
-
+	public static java.util.List<com.liferay.skinny.model.SkinnyJournalArticleVersionMetadata> getSkinnyJournalArticleVersions(
+		long groupId, String articleId) throws Exception {
 		return getService().getSkinnyJournalArticleVersions(groupId, articleId);
 	}
 
@@ -99,13 +92,11 @@ public class SkinnyServiceUtil {
 	static {
 		Bundle bundle = FrameworkUtil.getBundle(SkinnyService.class);
 
-		ServiceTracker<SkinnyService, SkinnyService> serviceTracker =
-			new ServiceTracker<SkinnyService, SkinnyService>(
-				bundle.getBundleContext(), SkinnyService.class, null);
+		ServiceTracker<SkinnyService, SkinnyService> serviceTracker = new ServiceTracker<SkinnyService, SkinnyService>(bundle.getBundleContext(),
+				SkinnyService.class, null);
 
 		serviceTracker.open();
 
 		_serviceTracker = serviceTracker;
 	}
-
 }

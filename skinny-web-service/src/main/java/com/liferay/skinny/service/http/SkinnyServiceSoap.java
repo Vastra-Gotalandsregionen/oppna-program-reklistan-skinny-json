@@ -70,12 +70,9 @@ public class SkinnyServiceSoap {
 		}
 	}
 
-	public static com.liferay.skinny.model.SkinnyJournalArticle[]
-			getSkinnyJournalArticles(
-				long companyId, String groupName, long ddmStructureId,
-				String locale)
+	public static com.liferay.skinny.model.SkinnyJournalArticle[] getSkinnyJournalArticles(
+		long companyId, String groupName, long ddmStructureId, String locale)
 		throws RemoteException {
-
 		try {
 			java.util.List<com.liferay.skinny.model.SkinnyJournalArticle>
 				returnValue = SkinnyServiceUtil.getSkinnyJournalArticles(
@@ -92,11 +89,9 @@ public class SkinnyServiceSoap {
 		}
 	}
 
-	public static com.liferay.skinny.model.SkinnyJournalArticle
-			getSkinnyJournalArticle(
-				long groupId, String articleId, int status, String locale)
+	public static com.liferay.skinny.model.SkinnyJournalArticle getSkinnyJournalArticle(
+		long groupId, String articleId, int status, String locale)
 		throws RemoteException {
-
 		try {
 			com.liferay.skinny.model.SkinnyJournalArticle returnValue =
 				SkinnyServiceUtil.getSkinnyJournalArticle(
@@ -111,10 +106,8 @@ public class SkinnyServiceSoap {
 		}
 	}
 
-	public static com.liferay.skinny.model.SkinnyJournalArticleVersionMetadata[]
-			getSkinnyJournalArticleVersions(long groupId, String articleId)
-		throws RemoteException {
-
+	public static com.liferay.skinny.model.SkinnyJournalArticleVersionMetadata[] getSkinnyJournalArticleVersions(
+		long groupId, String articleId) throws RemoteException {
 		try {
 			java.util.List
 				<com.liferay.skinny.model.SkinnyJournalArticleVersionMetadata>
@@ -133,11 +126,9 @@ public class SkinnyServiceSoap {
 		}
 	}
 
-	public static com.liferay.skinny.model.SkinnyJournalArticle
-			getSkinnyJournalArticleByVersion(
-				long groupId, String articleId, String version, String locale)
+	public static com.liferay.skinny.model.SkinnyJournalArticle getSkinnyJournalArticleByVersion(
+		long groupId, String articleId, String version, String locale)
 		throws RemoteException {
-
 		try {
 			com.liferay.skinny.model.SkinnyJournalArticle returnValue =
 				SkinnyServiceUtil.getSkinnyJournalArticleByVersion(

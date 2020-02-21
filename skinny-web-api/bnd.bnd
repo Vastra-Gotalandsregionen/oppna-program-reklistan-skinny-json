@@ -2,8 +2,7 @@ Bundle-Name: ${project.name}
 Bundle-SymbolicName: com.liferay.skinny.api
 Bundle-Version: ${project.version}
 Export-Package:\
-	com.liferay.skinny.exception,\
 	com.liferay.skinny.model,\
-	com.liferay.skinny.service,\
-	com.liferay.skinny.service.persistence
+	com.liferay.skinny.service
+-check: EXPORTS
 -includeresource: META-INF/service.xml=../skinny-web-service/service.xml
