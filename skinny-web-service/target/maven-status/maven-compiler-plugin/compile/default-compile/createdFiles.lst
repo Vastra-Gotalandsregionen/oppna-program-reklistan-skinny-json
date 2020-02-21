@@ -1,6 +1,0 @@
-com/liferay/skinny/service/base/SkinnyServiceBaseImpl.class
-com/liferay/skinny/service/http/SkinnyServiceSoap.class
-com/liferay/skinny/service/impl/SkinnyServiceImpl.class
-com/liferay/skinny/service/http/SkinnyServiceHttp.class
-com/liferay/skinny/service/impl/SkinnyServiceImpl$Occurrence.class
-com/liferay/skinny/service/util/ServiceProps.class

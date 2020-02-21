@@ -1,7 +1,0 @@
-com/liferay/skinny/model/SkinnyJournalArticleVersionMetadata.class
-com/liferay/skinny/model/SkinnyJournalArticle.class
-com/liferay/skinny/service/SkinnyService.class
-com/liferay/skinny/model/SkinnyBaseModel.class
-com/liferay/skinny/model/SkinnyDDLRecord.class
-com/liferay/skinny/service/SkinnyServiceWrapper.class
-com/liferay/skinny/service/SkinnyServiceUtil.class
